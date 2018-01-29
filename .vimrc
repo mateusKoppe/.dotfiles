@@ -27,6 +27,7 @@ set softtabstop=4   " Sets the number of columns for a TAB.
 set expandtab       " Expand TABs to spaces.
 set clipboard=unnamedplus
 
+syntax on
 color dracula
 
 let NERDTreeShowHidden=1
