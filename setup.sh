@@ -1,10 +1,46 @@
-#!/bin/sh
-apt-get update
-apt-get install git
-apt get install vim
+#!/bin/bash
 
-mv ~/dotfiles/* ~
-mv ~/dotfiles/.* ~
-rm ~/dotfiiles -rf
+HOME=${HOME}
+PWD=`pwd`
+DOTFILES_PATH="$(dirname $(readlink -f $0))"
+SYMLINKS=( ".vimrc" )
+VUNDLE_PATH="${HOME}/.vim/bundle/Vundle.vim"
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+create_symlinks(){
+  for symlink in ${SYMLINKS[@]}
+  do
+    echo "Creating symlink for ${HOME}/${symlink}"
+    ln -s ${DOTFILES_PATH}/${symlink} ${HOME}/${symlink} 
+  done
+}
+
+install_softwares(){
+    echo "Updating..."
+    sudo apt-get update
+    echo "Installing git"
+    sudo apt-get install git
+    echo "Installing vim"
+    sudo apt-get install vim
+}
+
+install_vundle(){
+    if [ -d $VUNDLE_PATH ];
+    then
+        update_vundle
+    else
+        echo "Installing Vundle.vim"
+        git clone https://github.com/VundleVim/Vundle.vim.git $VUNDLE_PATH
+    fi
+}
+
+update_vundle(){
+    echo "Updating Vundle.vim"
+    cd "${VUNDLE_PATH}"
+    git pull
+    cd ${PWD}
+}
+
+install_softwares
+create_symlinks
+install_vundle
+
