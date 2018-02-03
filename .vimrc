@@ -41,6 +41,8 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
+set termguicolors
+
 " let g:typescript_compiler_binary = 'tsc'
 
 if !exists("g:ycm_semantic_triggers")
