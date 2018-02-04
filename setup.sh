@@ -19,6 +19,8 @@ install_softwares(){
     sudo add-apt-repository ppa:jonathonf/vim
     echo "Updating..."
     sudo apt-get update
+    echo "Upgrading system"
+    sudo apt-get upgrade
     echo "Installing git"
     sudo apt-get install git
     echo "Installing vim"
