@@ -15,6 +15,8 @@ create_symlinks(){
 }
 
 install_softwares(){
+    echo "Adding PPA..."
+    sudo add-apt-repository ppa:jonathonf/vim
     echo "Updating..."
     sudo apt-get update
     echo "Installing git"
