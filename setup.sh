@@ -40,7 +40,12 @@ update_vundle(){
     cd ${PWD}
 }
 
+install_vundle_packages(){
+    vim +PluginInstall +qall
+}
+
 install_softwares
 create_symlinks
 install_vundle
+install_vundle_packages
 
