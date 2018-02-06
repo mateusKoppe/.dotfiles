@@ -25,6 +25,8 @@ install_softwares(){
     sudo apt-get install git
     echo "Installing vim"
     sudo apt-get install vim
+    echo "Installing zsh"
+    sudo apt-get install zsh
 }
 
 install_vundle(){
