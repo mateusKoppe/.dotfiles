@@ -15,8 +15,12 @@ create_symlinks(){
 }
 
 install_softwares(){
+    echo "Adding PPA..."
+    sudo add-apt-repository ppa:jonathonf/vim
     echo "Updating..."
     sudo apt-get update
+    echo "Upgrading system"
+    sudo apt-get upgrade
     echo "Installing git"
     sudo apt-get install git
     echo "Installing vim"
@@ -40,7 +44,12 @@ update_vundle(){
     cd ${PWD}
 }
 
+install_vundle_packages(){
+    vim +PluginInstall +qall
+}
+
 install_softwares
 create_symlinks
 install_vundle
+install_vundle_packages
 
