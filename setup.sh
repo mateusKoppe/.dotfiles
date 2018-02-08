@@ -3,7 +3,7 @@
 HOME=${HOME}
 PWD=`pwd`
 DOTFILES_PATH="$(dirname $(readlink -f $0))"
-SYMLINKS=( ".vimrc" )
+SYMLINKS=( ".vimrc" ".zshrc" )
 VUNDLE_PATH="${HOME}/.vim/bundle/Vundle.vim"
 
 create_symlinks(){
@@ -27,6 +27,8 @@ install_softwares(){
     sudo apt-get install vim
     echo "Installing zsh"
     sudo apt-get install zsh
+    echo "Installing curl"
+    sudo apt-get install curl
 }
 
 install_vundle(){
@@ -50,8 +52,13 @@ install_vundle_packages(){
     vim +PluginInstall +qall
 }
 
+install_ohmyzsh(){
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+}
+
 install_softwares
 create_symlinks
 install_vundle
 install_vundle_packages
+install_ohmyzsh
 
