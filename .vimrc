@@ -46,6 +46,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 set termguicolors
+set colorcolumn=80
 
 " let g:typescript_compiler_binary = 'tsc'
 
@@ -58,3 +59,5 @@ set t_Co=256
 
 " Maps commands
 map <c-\> :NERDTreeToggle<CR>
+map <c-j> :m .+1<CR>
+map <c-k> :m .-2<CR>
