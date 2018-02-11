@@ -22,6 +22,7 @@ Plugin 'quramy/tsuquyomi'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'roman/golden-ratio'
+Plugin 'posva/vim-vue'
 " Plugins end
 
 call vundle#end()            " required
