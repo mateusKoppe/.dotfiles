@@ -61,6 +61,7 @@ set t_Co=256
 " Maps commands
 map <c-\> :NERDTreeToggle<CR>
 map <c-j> :m .+1<CR>
+map <c-h> Yp :m .-1<CR>
 map <c-k> :m .-2<CR>
 map <c-t>h :tabprevious<CR>
 map <c-t>l :tabnext<CR>
