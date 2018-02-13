@@ -62,3 +62,16 @@ set t_Co=256
 map <c-\> :NERDTreeToggle<CR>
 map <c-j> :m .+1<CR>
 map <c-k> :m .-2<CR>
+map <c-t>h :tabprevious<CR>
+map <c-t>l :tabnext<CR>
+map <c-t>w :tabclose<CR>
+map <c-t>1 1gt<CR>
+map <c-t>2 2gt<CR>
+map <c-t>3 3gt<CR>
+map <c-t>4 4gt<CR>
+map <c-t>5 5gt<CR>
+map <c-t>6 6gt<CR>
+map <c-t>7 7gt<CR>
+map <c-t>8 8gt<CR>
+map <c-t>9 9gt<CR>
+map <c-t>0 10gt<CR>
