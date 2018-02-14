@@ -65,6 +65,7 @@ map <c-h> Y`]p
 map <c-k> :m .-2<CR>
 map <c-t>h :tabprevious<CR>
 map <c-t>l :tabnext<CR>
+map <c-t>t :tabnew<CR>
 map <c-t>w :tabclose<CR>
 map <c-t>1 1gt<CR>
 map <c-t>2 2gt<CR>
