@@ -1,0 +1,6 @@
+#!/bin/bash
+
+folder=$(basename $PWD)
+folder=$(echo $folder|tr -d -)
+
+sudo docker exec -it $(echo $folder)_$1_1 "${@:2}"

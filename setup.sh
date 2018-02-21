@@ -3,7 +3,7 @@
 HOME=${HOME}
 PWD=`pwd`
 DOTFILES_PATH="$(dirname $(readlink -f $0))"
-SYMLINKS=( ".vimrc" ".zshrc" )
+SYMLINKS=( ".vimrc" ".zshrc" "bin/dkcmd" )
 VUNDLE_PATH="${HOME}/.vim/bundle/Vundle.vim"
 
 create_symlinks(){
