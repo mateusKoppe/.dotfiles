@@ -15,8 +15,6 @@ Plugin 'dracula/vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'othree/html5.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'w0rp/ale'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'quramy/tsuquyomi'
 Plugin 'kien/ctrlp.vim'
@@ -43,20 +41,11 @@ let g:golden_ratio_filetypes_blacklist = ["nerdtree", "unite"]
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 0
+let g:airline_powerline_fonts = 0
 
 set termguicolors
 set colorcolumn=80
-
-" let g:typescript_compiler_binary = 'tsc'
-
-if !exists("g:ycm_semantic_triggers")
-    let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers['typescript'] = ['.']
-
-set t_Co=256
 
 " Maps commands
 map <c-\> :NERDTreeToggle<CR>
