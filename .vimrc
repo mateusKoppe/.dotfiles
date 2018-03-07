@@ -11,7 +11,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'pangloss/vim-javascript'
 Plugin 'stanangeloff/php.vim'
-Plugin 'dracula/vim'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'othree/html5.vim'
 Plugin 'tpope/vim-fugitive'
@@ -29,13 +29,14 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 set number          " Show the number lines
-set shiftwidth=4    " Indents will have a width of 4.
-set softtabstop=4   " Sets the number of columns for a TAB.
+set shiftwidth=2    " Indents will have a width of 4.
+set softtabstop=2   " Sets the number of columns for a TAB.
 set expandtab       " Expand TABs to spaces.
 set clipboard=unnamedplus
 
-syntax on
-color dracula
+syntax enable
+set background=light
+colorscheme solarized
 
 let NERDTreeShowHidden=1
 
@@ -43,20 +44,7 @@ let g:golden_ratio_filetypes_blacklist = ["nerdtree", "unite"]
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-
-set termguicolors
 set colorcolumn=80
-
-" let g:typescript_compiler_binary = 'tsc'
-
-if !exists("g:ycm_semantic_triggers")
-    let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers['typescript'] = ['.']
-
-set t_Co=256
 
 " Maps commands
 map <c-\> :NERDTreeToggle<CR>
