@@ -43,6 +43,10 @@ let NERDTreeShowHidden=1
 let g:golden_ratio_filetypes_blacklist = ["nerdtree", "unite"]
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_custom_ignore = {
+\ 'dir':  '\v[\/](doc|tmp|node_modules)',
+\ 'file': '\v\.(exe|so|dll)$',
+\ }
 
 set colorcolumn=80
 
