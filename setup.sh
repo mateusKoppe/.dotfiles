@@ -3,7 +3,7 @@
 HOME=${HOME}
 PWD=`pwd`
 DOTFILES_PATH="$(dirname $(readlink -f $0))"
-SYMLINKS=( ".vimrc" ".zshrc" "bin/dkcmd" ".tmux.conf" )
+SYMLINKS=( ".vimrc" ".zshrc" ".tmux.conf" )
 VUNDLE_PATH="${HOME}/.vim/bundle/Vundle.vim"
 
 create_symlinks(){
