@@ -1,18 +1,7 @@
 #!/bin/bash
 
-HOME=${HOME}
 PWD=`pwd`
-DOTFILES_PATH="$(dirname $(readlink -f $0))"
-SYMLINKS=( ".vimrc" ".zshrc" ".tmux.conf" )
 VUNDLE_PATH="${HOME}/.vim/bundle/Vundle.vim"
-
-create_symlinks(){
-  for symlink in ${SYMLINKS[@]}
-  do
-    echo "Creating symlink for ${HOME}/${symlink}"
-    ln -s ${DOTFILES_PATH}/${symlink} ${HOME}/${symlink} 
-  done
-}
 
 install_softwares(){
     echo "Adding PPA..."
@@ -57,7 +46,6 @@ install_ohmyzsh(){
 }
 
 install_softwares
-create_symlinks
 install_vundle
 install_vundle_packages
 install_ohmyzsh
