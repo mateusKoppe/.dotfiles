@@ -42,11 +42,19 @@ install_vundle_packages(){
 }
 
 install_ohmyzsh(){
+  echo "Installing Lazygit"
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+}
+
+install_lazygit(){
+  sudo add-apt-repository ppa:lazygit-team/daily
+  sudo apt-get update
+  sudo apt-get install lazygit
 }
 
 install_softwares
 install_vundle
 install_vundle_packages
 install_ohmyzsh
+install_lazygit
 
