@@ -34,7 +34,7 @@ set expandtab       " Expand TABs to spaces.
 set clipboard=unnamedplus
 
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 
 let NERDTreeShowHidden=1
