@@ -4,8 +4,6 @@ PWD=`pwd`
 VUNDLE_PATH="${HOME}/.vim/bundle/Vundle.vim"
 
 install_softwares(){
-    echo "Adding PPA..."
-    sudo add-apt-repository ppa:jonathonf/vim
     echo "Updating..."
     sudo apt-get update
     echo "Upgrading system"
@@ -13,7 +11,7 @@ install_softwares(){
     echo "Installing git"
     sudo apt-get install git
     echo "Installing vim"
-    sudo apt-get install vim
+    sudo apt-get install neovim
     echo "Installing zsh"
     sudo apt-get install zsh
     echo "Installing curl"
@@ -38,7 +36,7 @@ update_vundle(){
 }
 
 install_vundle_packages(){
-    vim +PluginInstall +qall
+    nvim +PluginInstall +qall
 }
 
 install_ohmyzsh(){
