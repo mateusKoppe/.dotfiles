@@ -14,6 +14,8 @@ install_softwares(){
     sudo apt-get install neovim
     echo "Installing zsh"
     sudo apt-get install zsh
+    echo "Installing Tmux"
+    sudo apt-get install tmux
     echo "Installing curl"
     sudo apt-get install curl
 }
