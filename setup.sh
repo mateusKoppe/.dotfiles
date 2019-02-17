@@ -50,7 +50,13 @@ install_lazygit(){
   sudo apt-get install lazygit
 }
 
+set_some_configs(){
+  echo "Defining some configs"
+  git config --global core.editor vim
+}
+
 install_softwares
 install_vundle
 install_vundle_packages
 install_ohmyzsh
+set_some_configs
