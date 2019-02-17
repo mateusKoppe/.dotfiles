@@ -3,7 +3,12 @@
 HOME=${HOME}
 PWD=`pwd`
 DOTFILES_PATH="$(dirname $(readlink -f $0))"
-SYMLINKS=( ".zshrc" ".tmux.conf" ".vimrc" )
+
+remove_symlinks(){
+  rm -f ${HOME}/.zshrc
+  rm -f ${HOME}/.tmux.conf
+  rm -f ${HOME}/.config/nvim/init.vim
+}
 
 create_symlinks(){
   ln -s ${DOTFILES_PATH}/.zshrc ${HOME}/.zshrc
@@ -11,4 +16,5 @@ create_symlinks(){
   ln -s ${DOTFILES_PATH}/.vimrc ${HOME}/.config/nvim/init.vim
 }
 
+remove_symlinks
 create_symlinks
