@@ -10,7 +10,7 @@ install_softwares(){
     sudo apt-get upgrade
     echo "Installing git"
     sudo apt-get install git
-    echo "Installing vim"
+    echo "Installing neovim"
     sudo apt-get install neovim
     echo "Installing zsh"
     sudo apt-get install zsh
@@ -40,7 +40,7 @@ install_vundle_packages(){
 }
 
 install_ohmyzsh(){
-  echo "Installing Lazygit"
+  echo "Installing Ohmyzsh"
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
@@ -54,5 +54,3 @@ install_softwares
 install_vundle
 install_vundle_packages
 install_ohmyzsh
-install_lazygit
-

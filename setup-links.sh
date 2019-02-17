@@ -3,7 +3,7 @@
 HOME=${HOME}
 PWD=`pwd`
 DOTFILES_PATH="$(dirname $(readlink -f $0))"
-SYMLINKS=( ".zshrc" ".tmux.conf" )
+SYMLINKS=( ".zshrc" ".tmux.conf" ".vimrc" )
 
 create_symlinks(){
   for symlink in ${SYMLINKS[@]}
