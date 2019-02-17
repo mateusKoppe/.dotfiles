@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()            " required
 
 " Plugins start
@@ -28,13 +28,14 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 set number          " Show the number lines
+set relativenumber  " Calculate lines difference
 set shiftwidth=2    " Indents will have a width of 4.
 set softtabstop=2   " Sets the number of columns for a TAB.
 set expandtab       " Expand TABs to spaces.
 set clipboard=unnamedplus
 
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 
 let NERDTreeShowHidden=1
