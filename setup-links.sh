@@ -6,12 +6,9 @@ DOTFILES_PATH="$(dirname $(readlink -f $0))"
 SYMLINKS=( ".zshrc" ".tmux.conf" ".vimrc" )
 
 create_symlinks(){
-  for symlink in ${SYMLINKS[@]}
-  do
-    echo "Creating symlink for ${HOME}/${symlink}"
-    rm ${HOME}/${symlink}
-    ln -s ${DOTFILES_PATH}/${symlink} ${HOME}/${symlink}
-  done
+  ln -s ${DOTFILES_PATH}/.zshrc ${HOME}/.zshrc
+  ln -s ${DOTFILES_PATH}/.tmux.conf ${HOME}/.tmux.conf
+  ln -s ${DOTFILES_PATH}/.vimrc ${HOME}/.config/nvim/init.vim
 }
 
 create_symlinks
