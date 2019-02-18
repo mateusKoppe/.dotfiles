@@ -4,24 +4,48 @@ filetype off                  " required
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()            " required
 
-" Plugins start
 Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'scrooloose/nerdtree'
+let NERDTreeShowHidden=1
+
 Plugin 'vim-airline/vim-airline'
+Plugin 'amirh/html-autoclosetag'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'pangloss/vim-javascript'
 Plugin 'stanangeloff/php.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'dikiaap/minimalist'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'othree/html5.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-db'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'quramy/tsuquyomi'
+
+Plugin 'Townk/vim-autoclose'
+
 Plugin 'kien/ctrlp.vim'
+Plugin 'FelikZ/ctrlp-py-matcher'
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_custom_ignore = {
+\ 'dir':  '\v[\/](doc|tmp|node_modules)',
+\ 'file': '\v\.(exe|so|dll)$',
+\ }
+
 Plugin 'mattn/emmet-vim'
+
 Plugin 'roman/golden-ratio'
+let g:golden_ratio_filetypes_blacklist = ["nerdtree", "unite"]
+
 Plugin 'posva/vim-vue'
+Plugin 'xolox/vim-misc'
+
+Plugin 'xolox/vim-notes'
+let g:notes_directories = ['~/Documents/Notes', '~/Dropbox/Notes']
+let g:notes_suffix = '.txt'
+let g:notes_title_sync = 1
+
 " Plugins end
 
 call vundle#end()            " required
@@ -35,18 +59,13 @@ set expandtab       " Expand TABs to spaces.
 set clipboard=unnamedplus
 
 syntax enable
+set t_Co=256
+syntax on
 set background=light
-colorscheme solarized
+colorscheme minimalist
 
-let NERDTreeShowHidden=1
-
-let g:golden_ratio_filetypes_blacklist = ["nerdtree", "unite"]
-
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let g:ctrlp_custom_ignore = {
-\ 'dir':  '\v[\/](doc|tmp|node_modules)',
-\ 'file': '\v\.(exe|so|dll)$',
-\ }
+let g:airline_theme='minimalist'
+let g:airline_powerline_fonts = 1
 
 set colorcolumn=80
 
