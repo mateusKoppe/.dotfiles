@@ -10,7 +10,6 @@ Plugin 'scrooloose/nerdtree'
 let NERDTreeShowHidden=1
 
 Plugin 'vim-airline/vim-airline'
-Plugin 'amirh/html-autoclosetag'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'pangloss/vim-javascript'
 Plugin 'stanangeloff/php.vim'

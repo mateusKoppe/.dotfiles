@@ -5,19 +5,19 @@ VUNDLE_PATH="${HOME}/.config/nvim/bundle/Vundle.vim"
 
 install_softwares(){
     echo "Updating..."
-    sudo apt-get update
+    apt-get update
     echo "Upgrading system"
-    sudo apt-get upgrade
+    apt-get upgrade
     echo "Installing git"
-    sudo apt-get install git
+    apt-get install git
     echo "Installing neovim"
-    sudo apt-get install neovim
+    apt-get install neovim
     echo "Installing zsh"
-    sudo apt-get install zsh
+    apt-get install zsh
     echo "Installing Tmux"
-    sudo apt-get install tmux
+    apt-get install tmux
     echo "Installing curl"
-    sudo apt-get install curl
+    apt-get install curl
 }
 
 install_vundle(){
@@ -47,9 +47,9 @@ install_ohmyzsh(){
 }
 
 install_lazygit(){
-  sudo add-apt-repository ppa:lazygit-team/daily
-  sudo apt-get update
-  sudo apt-get install lazygit
+  add-apt-repository ppa:lazygit-team/daily
+  apt-get update
+  apt-get install lazygit
 }
 
 set_some_configs(){
