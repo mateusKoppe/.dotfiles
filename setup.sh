@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PWD=`pwd`
-VUNDLE_PATH="${HOME}/.vim/bundle/Vundle.vim"
+VUNDLE_PATH="${HOME}/.config/nvim/bundle/Vundle.vim"
 
 install_softwares(){
     echo "Updating..."
