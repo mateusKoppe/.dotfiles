@@ -54,7 +54,7 @@ install_lazygit(){
 
 set_some_configs(){
   echo "Defining some configs"
-  git config --global core.editor vim
+  git config --global core.editor nvim
 }
 
 install_softwares
