@@ -5,19 +5,19 @@ VUNDLE_PATH="${HOME}/.config/nvim/bundle/Vundle.vim"
 
 install_softwares(){
     echo "Updating..."
-    apt-get update
+    sudo apt-get update
     echo "Upgrading system"
-    apt-get upgrade
+    sudo apt-get upgrade
     echo "Installing git"
-    apt-get install git
+    sudo apt-get install git
     echo "Installing neovim"
-    apt-get install neovim
+    sudo apt-get install neovim
     echo "Installing zsh"
-    apt-get install zsh
+    sudo apt-get install zsh
     echo "Installing Tmux"
-    apt-get install tmux
+    sudo apt-get install tmux
     echo "Installing curl"
-    apt-get install curl
+    sudo apt-get install curl
 }
 
 install_vundle(){
