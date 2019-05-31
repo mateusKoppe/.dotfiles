@@ -14,9 +14,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'pangloss/vim-javascript'
 Plugin 'stanangeloff/php.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'dikiaap/minimalist'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'othree/html5.vim'
+Plugin 'alvan/vim-closetag'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-db'
 Plugin 'leafgarland/typescript-vim'
@@ -45,10 +45,19 @@ let g:notes_directories = ['~/Documents/Notes', '~/Dropbox/Notes']
 let g:notes_suffix = '.txt'
 let g:notes_title_sync = 1
 
-" Plugins end
+"Plugin 'dikiaap/minimalist'
+Plugin 'ayu-theme/ayu-vim' " or other package manager
 
+" Plugins end
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" IndentLine {{
+let g:indentLine_char = ''
+let g:indentLine_first_char = ''
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_setColors = 0
+" }}
 
 set number          " Show the number lines
 set relativenumber  " Calculate lines difference
@@ -58,13 +67,18 @@ set expandtab       " Expand TABs to spaces.
 set clipboard=unnamedplus
 
 syntax enable
-set t_Co=256
 syntax on
-set background=light
-colorscheme minimalist
 
-let g:airline_theme='minimalist'
+"let g:airline_theme='minimalist'
+"colorscheme minimalist
+"set t_Co=256
 
+set termguicolors     " enable true colors support
+let ayucolor="light"  " for light version of theme
+"let ayucolor="mirage" " for mirage version of theme
+"let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
+"
 set colorcolumn=80
 
 " Maps commands
