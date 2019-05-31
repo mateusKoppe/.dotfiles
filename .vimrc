@@ -8,6 +8,11 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
 let NERDTreeShowHidden=1
+" NERDTree {{
+let NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrowExpandable = '>'
+let g:NERDTreeDirArrowCollapsible = '-'
+"}}
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'airblade/vim-gitgutter'
@@ -48,15 +53,17 @@ let g:notes_title_sync = 1
 "Plugin 'dikiaap/minimalist'
 Plugin 'ayu-theme/ayu-vim' " or other package manager
 
+Plugin 'Yggdroot/indentLine'
+let g:indentLine_setColors = 0
+
 " Plugins end
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 " IndentLine {{
-let g:indentLine_char = ''
-let g:indentLine_first_char = ''
+"let g:indentLine_char = ''
+"let g:indentLine_first_char = ''
 let g:indentLine_showFirstIndentLevel = 1
-let g:indentLine_setColors = 0
 " }}
 
 set number          " Show the number lines
