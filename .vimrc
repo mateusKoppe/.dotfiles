@@ -17,7 +17,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 "Airline {
   Plugin 'vim-airline/vim-airline'
-"}
+  let g:airline_theme='one'
+  "}
 
 "GitGutter {
   Plugin 'airblade/vim-gitgutter'
@@ -67,25 +68,27 @@ Plugin 'mattn/emmet-vim'
 Plugin 'xolox/vim-misc'
 
 "Theme {
-  Plugin 'ayu-theme/ayu-vim' " or other package manager
-  let ayucolor="light"  " for light version of theme
+  Plugin 'ayu-theme/ayu-vim'
+  Plugin 'rakr/vim-one'
+  let ayucolor="dark"  " for light version of theme
 "}
 
 "IndentLine {{
-Plugin 'Yggdroot/indentLine'
-let g:indentLine_showFirstIndentLevel = 1
-let g:indentLine_setColors = 0
+  Plugin 'Yggdroot/indentLine'
+  let g:indentLine_showFirstIndentLevel = 1
+  let g:indentLine_setColors = 0
 " }}
 
 "Plugins end
 call vundle#end()            " required
 
 "Visual config{
+  colorscheme one
+  set background=dark
   syntax enable
   syntax on
   filetype plugin indent on    " required
   set termguicolors     " enable true colors support
-  colorscheme ayu
   set colorcolumn=80
   set number          " Show the number lines
   set relativenumber  " Calculate lines difference
