@@ -10,8 +10,8 @@ Plugin 'VundleVim/Vundle.vim'
   Plugin 'scrooloose/nerdtree'
   let NERDTreeShowHidden=1
   let NERDTreeMinimalUI = 1
-  let g:NERDTreeDirArrowExpandable = '>'
-  let g:NERDTreeDirArrowCollapsible = '-'
+""  let g:NERDTreeDirArrowExpandable = '>'
+""  let g:NERDTreeDirArrowCollapsible = '-'
   map <c-\> :NERDTreeToggle<CR>
 "}
 
