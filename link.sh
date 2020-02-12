@@ -14,7 +14,7 @@ create_symlinks(){
   ln -s ${DOTFILES_PATH}/.zshrc ${HOME}/.zshrc
   ln -s ${DOTFILES_PATH}/.tmux.conf ${HOME}/.tmux.conf
   mkdir -p ${HOME}/.config/nvim
-  ln -s ${DOTFILES_PATH}/.vimrc ${HOME}/.config/nvim/init.vim
+  ln -s ${DOTFILES_PATH}/init.vim ${HOME}/.config/nvim/init.vim
 }
 
 remove_symlinks
