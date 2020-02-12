@@ -85,6 +85,7 @@ call vundle#end()            " required
 "Visual config{
   colorscheme one
   set background=dark
+  set guifont=JetBrains\ Mono:h12
   syntax enable
   syntax on
   filetype plugin indent on    " required
