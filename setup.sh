@@ -30,6 +30,12 @@ install_vundle(){
     fi
 }
 
+
+install_tpm(){
+    echo "Instaling tpm"
+    git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm
+}
+
 update_vundle(){
     echo "Updating Vundle.vim"
     cd "${VUNDLE_PATH}"
@@ -61,4 +67,5 @@ install_softwares
 install_vundle
 install_vundle_packages
 install_ohmyzsh
+install_tpm
 set_some_configs
