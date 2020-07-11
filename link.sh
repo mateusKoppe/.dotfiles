@@ -9,6 +9,7 @@ remove_symlinks(){
   rm -f ${HOME}/.tmux.conf
   rm -f ${HOME}/.config/nvim/init.vim
   rm -f ${HOME}/.p10k.zsh
+  rm -f ${HOME}/.config/i3
 }
 
 create_symlinks(){
@@ -17,6 +18,7 @@ create_symlinks(){
   ln -s ${DOTFILES_PATH}/.p10k.zsh ${HOME}/.p10k.zsh
   mkdir -p ${HOME}/.config/nvim
   ln -s ${DOTFILES_PATH}/init.vim ${HOME}/.config/nvim/init.vim
+  ln -s ${DOTFILES_PATH}/i3 ${HOME}/.config/i3
 }
 
 remove_symlinks
