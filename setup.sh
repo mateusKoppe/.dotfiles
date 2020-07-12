@@ -37,6 +37,7 @@ install_i3(){
     sudo pacman -S rofi
     sudo pacman -S polybar
     sudo pacman -S feh
+    sudo pacman -S i3lock
 }
 
 set_some_configs(){
