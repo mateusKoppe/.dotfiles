@@ -6,12 +6,12 @@ VUNDLE_PATH="${HOME}/.config/nvim/bundle/Vundle.vim"
 install_softwares(){
     echo "Updating..."
     sudo pacman Syu
-    sudo pacman -S git -y
+    sudo pacman -S git
 }
 
 install_zsh(){
     echo "Installing zsh..."
-    sudo pacman -S zsh -y
+    sudo pacman -S zsh
     echo "Installing Ohmyzsh..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     echo "Installing powerlevel10k..."
@@ -20,7 +20,7 @@ install_zsh(){
 
 install_neovim(){
     echo "Installing neovim"
-    sudo pacman -S neovim -y
+    sudo pacman -S neovim
     echo "Installing Vundle.vim..."
     git clone https://github.com/VundleVim/Vundle.vim.git $VUNDLE_PATH
     nvim +PluginInstall +qall
@@ -28,9 +28,15 @@ install_neovim(){
 
 install_tmux(){
     echo "Installing Tmux"
-    sudo pacman -S tmux -y
+    sudo pacman -S tmux
     echo "Instaling tpm"
     git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm
+}
+
+install_i3(){
+    sudo pacman -S rofi
+    sudo pacman -S polybar
+    sudo pacman -S feh
 }
 
 set_some_configs(){

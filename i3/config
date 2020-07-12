@@ -176,13 +176,12 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status
-}
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id feh --bg-fill $HOME/.config/i3/wallpaper-sunyu.jpg
 
-# colour of border, background, text, indicator, and child_border
+# Theme colors
+# class                 border  	backgr. 	text    	indic.  	child_border
+# My colors
 client.focused          #bf616a #2f343f #d8dee8 #bf616a #d8dee8
 client.focused_inactive #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.unfocused        #2f343f #2f343f #d8dee8 #2f343f #2f343f

@@ -9,7 +9,8 @@ remove_symlinks(){
   rm -f ${HOME}/.tmux.conf
   rm -f ${HOME}/.config/nvim/init.vim
   rm -f ${HOME}/.p10k.zsh
-  rm -f ${HOME}/.config/i3
+  rm -f ${HOME}/.config/i3 -rf
+  rm -f ${HOME}/.config/polybar -rf
 }
 
 create_symlinks(){
@@ -19,6 +20,7 @@ create_symlinks(){
   mkdir -p ${HOME}/.config/nvim
   ln -s ${DOTFILES_PATH}/init.vim ${HOME}/.config/nvim/init.vim
   ln -s ${DOTFILES_PATH}/i3 ${HOME}/.config/i3
+  ln -s ${DOTFILES_PATH}/polybar ${HOME}/.config/polybar
 }
 
 remove_symlinks
