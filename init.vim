@@ -73,12 +73,6 @@ Plugin 'xolox/vim-misc'
   let ayucolor="dark"  " for light version of theme
 "}
 
-"IndentLine {{
-  Plugin 'Yggdroot/indentLine'
-  let g:indentLine_showFirstIndentLevel = 1
-  let g:indentLine_setColors = 0
-" }}
-
 "Plugins end
 call vundle#end()            " required
 

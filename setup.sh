@@ -49,4 +49,5 @@ install_softwares
 install_zsh
 install_neovim
 install_tmux
+install_i3
 set_some_configs
