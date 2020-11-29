@@ -175,4 +175,4 @@ type = internal/date
 interval = 30
 label =  %time%
 time = %a %H:%M
-time-alt =  %Y-%m-%d;==========================================================
+time-alt =  %Y-%m-%d
