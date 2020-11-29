@@ -1,0 +1,137 @@
+/*-*- mode: css; -*-*/
+
+configuration {
+	display-drun:    "Run";
+	display-run:     "Bin";
+	display-window:  "Windows";
+	show-icons:      true;
+	sidebar-mode:    true;
+}
+
+* {
+	background-color:            #333333;
+	text-color:                  #dcdcdc;
+	selbg:                       #444444;
+	actbg:                       #262626;
+	urgbg:                       #82CCDD;
+	winbg:			     #333333;
+
+	selected-normal-foreground:  @urbg;
+	normal-foreground:           @text-color;
+	selected-normal-background:  @selbg;
+	normal-background:           @background-color;
+
+	selected-urgent-foreground:  @text-color;
+	urgent-foreground:           @text-color;
+	selected-urgent-background:  @urgbg;
+	urgent-background:           @background-color;
+
+	selected-active-foreground:  @urgbg;
+	active-foreground:           @background-color;
+	selected-active-background:  @selbg;
+	active-background:           @urgbg;
+
+	line-margin:                 0;
+	line-padding:                0;
+	separator-style:             "none";
+	hide-scrollbar:              "true";
+	margin:                      0;
+	padding:                     0;
+
+	font: "FreeSans 14";
+}
+
+window {
+	location: north west;
+	height:		 97.2%;
+	width:		 25%;
+	orientation: horizontal;
+	children:	 [mainbox];
+	y-offset: 32px;
+}
+
+mainbox {
+	spacing:  0.8em;
+	children: [ mode-switcher, listview, entry ];
+}
+
+button {
+	padding: 5px 5px;
+	margin: 5px;
+}
+
+button selected {
+	background-color: @active-background;
+	text-color:       @background-color;
+}
+
+inputbar {
+	padding: 5px;
+	spacing: 5px;
+	vertical-align: 1;
+}
+
+listview {
+	spacing: 0.5em;
+	dynamic: false;
+	cycle:   false;
+}
+
+element { padding: 10px; }
+
+entry {
+	expand:         false;
+	text-color:     @normal-foreground;
+	vertical-align: 1;
+	padding:        8px;
+	background-color: @selected-normal-background;
+	border-radius: 20px;
+	margin: 0px 7px 10px 7px;
+}
+
+element normal.normal {
+	background-color: @normal-background;
+	text-color:       @normal-foreground;
+}
+
+element normal.urgent {
+	background-color: @urgent-background;
+	text-color:       @urgent-foreground;
+}
+
+element normal.active {
+	background-color: @active-background;
+	text-color:       @active-foreground;
+}
+
+element selected.normal {
+	background-color: @selected-normal-background;
+	text-color:       @selected-normal-foreground;
+	border:           0 5px solid 0 0;
+	border-color:	    @active-background;
+}
+
+element selected.urgent {
+	background-color: @selected-urgent-background;
+	text-color:       @selected-urgent-foreground;
+}
+
+element selected.active {
+	background-color: @selected-active-background;
+	text-color:       @selected-active-foreground;
+}
+
+element alternate.normal {
+	background-color: @normal-background;
+	text-color:       @normal-foreground;
+}
+
+element alternate.urgent {
+	background-color: @urgent-background;
+	text-color:       @urgent-foreground;
+}
+
+element alternate.active {
+	background-color: @active-background;
+	text-color:       @active-foreground;
+}
