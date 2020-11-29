@@ -14,6 +14,7 @@ remove_symlinks(){
 }
 
 create_symlinks(){
+  ln -s ${DOTFILES_PATH}/fonts ${HOME}/.fonts
   ln -s ${DOTFILES_PATH}/zsh/.zshrc ${HOME}/.zshrc
   ln -s ${DOTFILES_PATH}/.tmux.conf ${HOME}/.tmux.conf
   ln -s ${DOTFILES_PATH}/.p10k.zsh ${HOME}/.p10k.zsh
