@@ -42,6 +42,10 @@ bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -193,11 +197,11 @@ exec_always --no-startup-id "deadd-notification-center"
 
 #styling (for non-tiled windows)
  # class                 border  backgr. text    indicator
-    client.focused          #444444 #444444 #444444 #444444
-    client.focused_inactive #333333 #333333 #333333 #333333
-    client.unfocused        #333333 #333333 #333333 #333333
-    client.urgent           #333333 #333333 #333333 #333333
-    client.placeholder      #333333 #333333 #333333 #333333
+    client.focused          #444444 #444444 #fafafa #444444
+    client.focused_inactive #333333 #333333 #fafafa #333333
+    client.unfocused        #333333 #333333 #fafafa #333333
+    client.urgent           #333333 #333333 #fafafa #333333
+    client.placeholder      #333333 #333333 #fafafa #333333
 
     new_window 1pixel
 
