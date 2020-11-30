@@ -15,6 +15,7 @@ remove_symlinks(){
   rm -f ${HOME}/.config/polybar -r
   rm -fr ${HOME}/.config/rofi
   rm -fr ${HOME}/.config/picom
+  rm -fr ${HOME}/.config/kitty
 }
 
 create_symlinks(){
@@ -29,6 +30,7 @@ create_symlinks(){
   ln -s ${DOTFILES_PATH}/polybar ${HOME}/.config/polybar
   ln -s ${DOTFILES_PATH}/rofi ${HOME}/.config/rofi
   ln -s ${DOTFILES_PATH}/picom ${HOME}/.config/picom
+  ln -s ${DOTFILES_PATH}/kitty ${HOME}/.config/kitty
 }
 
 remove_symlinks
