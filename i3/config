@@ -155,7 +155,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # Lock screen
-bindsym $mod+Ctrl+l exec i3lock
+bindsym $mod+Escape exec $HOME/.config/i3/i3lock.sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -187,7 +187,7 @@ bindsym $mod+p exec "kill -s USR1 $(pidof deadd-notification-center)"
 
 ## Startups
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id feh --bg-fill $HOME/.config/i3/wallpaper-sunyu.jpg
+exec_always --no-startup-id feh --bg-fill $HOME/.dotfiles/wallpapers/wallpaper-sunyu.png
 exec_always --no-startup-id "killall -q deadd-notification-center"
 exec_always --no-startup-id "deadd-notification-center"
 

@@ -64,7 +64,7 @@ tray-maxsize = 16
 
 modules-left = rofi i3 xwindow
 modules-center = date
-modules-right = memory cpu temperature player-status notifications volume
+modules-right = memory cpu battery player-status notifications volume
 
 ;========================MODULES==================================
 
@@ -97,6 +97,29 @@ label-visible-padding = ${self.label-focused-padding}
 label-urgent = %index%
 label-urgent-background = ${color.yellow}
 label-urgent-padding = 2
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+; $ ls -1 /sys/class/power_supply/
+battery = BAT1
+adapter = ADP1
+format-discharging = <label-discharging>
+label-charging = BAT+ %percentage%%
+label-discharging = BAT %percentage%%
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval = 5
 
 [module/player-status]
 type = custom/script
@@ -137,19 +160,6 @@ type = internal/memory
 interval = 2
 format-prefix = "MEM "
 label = %percentage_used%%
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 80
-
-format = <label>
-format-warn = <label-warn>
-format-warn-underline = ${color.red}
-
-label = %temperature-c%
-label-warn = !! %temperature-c%
-label-warn-foreground = %temperature-c%c
 
 [module/volume]
 type = internal/alsa
