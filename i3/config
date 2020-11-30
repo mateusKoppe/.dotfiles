@@ -194,6 +194,8 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-fill $HOME/.config/i3/wallpaper-sunyu.jpg
 exec_always --no-startup-id "killall -q deadd-notification-center"
 exec_always --no-startup-id "deadd-notification-center"
+exec_always --no-startup-id xrandr --output HDMI-1-1 --auto --right-of eDP-1
+exec_always --no-startup-id "~/.config/i3/start_picom.sh"
 
 #styling (for non-tiled windows)
  # class                 border  backgr. text    indicator
@@ -203,7 +205,7 @@ exec_always --no-startup-id "deadd-notification-center"
     client.urgent           #333333 #333333 #fafafa #333333
     client.placeholder      #333333 #333333 #fafafa #333333
 
-    new_window 1pixel
+    # new_window 1pixel
 
   gaps inner 10
 # Screen shots
