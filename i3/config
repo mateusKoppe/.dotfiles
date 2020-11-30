@@ -81,7 +81,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+z split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -178,10 +178,13 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+bindsym $mod+p exec "kill -s USR1 $(pidof deadd-notification-center)"
 
 ## Startups
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-fill $HOME/.config/i3/wallpaper-sunyu.jpg
+exec_always --no-startup-id "killall -q deadd-notification-center"
+exec_always --no-startup-id "deadd-notification-center"
 
 #styling (for non-tiled windows)
  # class                 border  backgr. text    indicator
