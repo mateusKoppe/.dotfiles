@@ -11,14 +11,6 @@
 
 set $mod Mod4
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font pango:monospace 8
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -161,6 +153,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Lock screen
 bindsym $mod+Escape exec $HOME/.config/i3/i3lock.sh
 
+mouse_warping none
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -198,7 +192,7 @@ bindsym $mod+p exec "kill -s USR1 $(pidof deadd-notification-center)"
 
 ## Startups
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id feh --bg-fill $HOME/.dotfiles/wallpapers/wallpaper-sunyu.png
+exec_always --no-startup-id feh --bg-fill $HOME/.dotfiles/i3/wallpaper-sunyu.jpg
 exec_always --no-startup-id "killall -q deadd-notification-center"
 exec_always --no-startup-id "deadd-notification-center"
 exec_always --no-startup-id xrandr --output HDMI-1-1 --auto --right-of eDP-1
@@ -214,6 +208,15 @@ exec_always --no-startup-id "picom"
     client.placeholder      #333333 #333333 #fafafa #333333
 
     # new_window 1pixel
+
+  # Font for window titles. Will also be used by the bar unless a different font
+  # is used in the bar {} block below.
+  font pango:Liga Sans Mono 8
+  title_align center
+
+  # This font is widely installed, provides lots of unicode glyphs, right-to-left
+  # text rendering and scalability on retina/hidpi displays (thanks to pango).
+  #font pango:DejaVu Sans Mono 8
 
   gaps inner 10
 # Screen shots

@@ -17,8 +17,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 "Airline {
   Plugin 'vim-airline/vim-airline'
-  let g:airline_theme='one'
-  "}
+  let g:airline_theme='gruvbox_material'
+"}
 
 "GitGutter {
   Plugin 'airblade/vim-gitgutter'
@@ -68,16 +68,14 @@ Plugin 'mattn/emmet-vim'
 Plugin 'xolox/vim-misc'
 
 "Theme {
-  Plugin 'ayu-theme/ayu-vim'
-  Plugin 'rakr/vim-one'
-  let ayucolor="dark"  " for light version of theme
+  Plugin 'sainnhe/gruvbox-material'
 "}
 
 "Plugins end
 call vundle#end()            " required
 
 "Visual config{
-  colorscheme one
+  colorscheme gruvbox-material
   set background=dark
   set guifont=JetBrains\ Mono:h12
   syntax enable
