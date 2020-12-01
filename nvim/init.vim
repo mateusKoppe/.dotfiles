@@ -15,11 +15,6 @@ Plugin 'VundleVim/Vundle.vim'
   map <c-\> :NERDTreeToggle<CR>
 "}
 
-"Airline {
-  Plugin 'vim-airline/vim-airline'
-  let g:airline_theme='gruvbox_material'
-"}
-
 "GitGutter {
   Plugin 'airblade/vim-gitgutter'
 "}
@@ -68,14 +63,20 @@ Plugin 'mattn/emmet-vim'
 Plugin 'xolox/vim-misc'
 
 "Theme {
-  Plugin 'sainnhe/gruvbox-material'
+  Plugin 'arcticicestudio/nord-vim'
 "}
+
+"Airline {
+  Plugin 'vim-airline/vim-airline'
+  let g:airline_theme='nord'
+"}
+
 
 "Plugins end
 call vundle#end()            " required
 
 "Visual config{
-  colorscheme gruvbox-material
+  colorscheme nord
   set background=dark
   set guifont=JetBrains\ Mono:h12
   syntax enable

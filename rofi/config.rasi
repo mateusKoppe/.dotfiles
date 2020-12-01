@@ -9,12 +9,12 @@ configuration {
 }
 
 * {
-	background-color:            #333333;
-	text-color:                  #dcdcdc;
-	selbg:                       #444444;
-	actbg:                       #262626;
-	urgbg:                       #82CCDD;
-	winbg:			     #333333;
+	background-color:            #3b4252;
+	text-color:                  #e5e9f0;
+	selbg:                       #4c566a;
+	actbg:                       #434c5e;
+	urgbg:                       #a3be8c;
+	winbg:			     #d8dee9;
 
 	selected-normal-foreground:  @urbg;
 	normal-foreground:           @text-color;

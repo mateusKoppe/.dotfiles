@@ -13,17 +13,17 @@
 
 [color]
 ; My global colorscheme:
-black = #444444
-red = #E55039
-green = #B8E994
-yellow = #feb652
-blue = #6A89CC
-magenta = #FDA7DF
-cyan = #82CCDD
+black = #2e3440
+red = #bf616a
+green = #a3be8c
+yellow = #ebcb8b
+blue = #81a1c1
+magenta = #5e81ac
+cyan = #88c0d0
 white = #ffffff
 
-bg = #333333
-fg = #dcdcdc
+bg = #3b4252
+fg = #e5e9f0
 ;==========================================================
 
 [bar/main]

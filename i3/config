@@ -191,21 +191,27 @@ bindsym $mod+Shift+o resize grow width 1 px or 1 ppt
 bindsym $mod+p exec "kill -s USR1 $(pidof deadd-notification-center)"
 
 ## Startups
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id feh --bg-fill $HOME/.dotfiles/i3/wallpaper-sunyu.jpg
 exec_always --no-startup-id "killall -q deadd-notification-center"
-exec_always --no-startup-id "deadd-notification-center"
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id feh --bg-fill $HOME/.dotfiles/i3/wallpaper-nord.png
 exec_always --no-startup-id xrandr --output HDMI-1-1 --auto --right-of eDP-1
 exec_always --no-startup-id "~/.config/i3/start_picom.sh"
+exec_always --no-startup-id "deadd-notification-center"
 exec_always --no-startup-id "picom"
+
+set $background #2e3440
+set $focused_background #434c5e
+set $text_color #d8dee9
+set $indicator #434c5e
+set $urgent_background #d08770
 
 #styling (for non-tiled windows)
  # class                 border  backgr. text    indicator
-    client.focused          #444444 #444444 #fafafa #444444
-    client.focused_inactive #333333 #333333 #fafafa #333333
-    client.unfocused        #333333 #333333 #fafafa #333333
-    client.urgent           #333333 #333333 #fafafa #333333
-    client.placeholder      #333333 #333333 #fafafa #333333
+  client.focused          $focused_background $focused_background $text_color $indicator $background
+  client.focused_inactive $background $background $text_color $indicator $background
+  client.unfocused        $background $background $text_color $indicator $background
+  client.urgent           $urgent_background $urgent_background $text_color $indicator $background
+  client.placeholder      $background $background $text_color $indicator $background
 
     # new_window 1pixel
 
