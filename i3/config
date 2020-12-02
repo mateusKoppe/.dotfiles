@@ -224,7 +224,10 @@ set $urgent_background #d08770
   # text rendering and scalability on retina/hidpi displays (thanks to pango).
   #font pango:DejaVu Sans Mono 8
 
+  for_window [class=".*"] border pixel 1
   gaps inner 10
+  smart_gaps on
+  smart_borders no_gaps
 # Screen shots
 
 bindsym Ctrl+Shift+Print exec gnome-screenshot -acf /tmp/test && cat /tmp/test | xclip -i -selection clipboard -target image/png

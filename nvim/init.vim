@@ -9,9 +9,6 @@ Plugin 'VundleVim/Vundle.vim'
 "NERDTree {
   Plugin 'scrooloose/nerdtree'
   let NERDTreeShowHidden=1
-  let NERDTreeMinimalUI = 1
-""  let g:NERDTreeDirArrowExpandable = '>'
-""  let g:NERDTreeDirArrowCollapsible = '-'
   map <c-\> :NERDTreeToggle<CR>
 "}
 
