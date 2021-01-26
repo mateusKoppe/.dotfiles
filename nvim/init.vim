@@ -16,7 +16,64 @@ Plugin 'VundleVim/Vundle.vim'
   Plugin 'airblade/vim-gitgutter'
 "}
 
-"Plugin 'pangloss/vim-javascript'
+"fzf {
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
+
+nnoremap <C-p> :Files<CR>
+nnoremap <A-f> :Rg<CR>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit'
+  \}
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Conditional'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+function! s:GoToDefinition()
+  if CocAction('jumpDefinition')
+    return v:true
+  endif
+
+  let ret = execute("silent! normal \<C-]>")
+  if ret =~ "Error" || ret =~ "错误"
+    call searchdecl(expand('<cword>'))
+  endif
+endfunction
+
+nmap <silent> gd :call <SID>GoToDefinition()<CR>
+"}
+
+"JavaScript {
+Plugin 'pangloss/vim-javascript'
+Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plugin 'jparise/vim-graphql'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier']  " list of CoC extensions needed
+
+Plugin 'jiangmiao/auto-pairs'
+
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+"}
 
 "Editorconfig {
   Plugin 'editorconfig/editorconfig-vim'
@@ -24,6 +81,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 "Closetag {
   Plugin 'alvan/vim-closetag'
+  let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+  let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.jsx"
 "}
 
 "Fugitive {
@@ -35,22 +94,17 @@ Plugin 'VundleVim/Vundle.vim'
 "}
 
 "Ctrlp {
-  Plugin 'kien/ctrlp.vim'
-  Plugin 'FelikZ/ctrlp-py-matcher'
-  let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-  let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](doc|tmp|node_modules)',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ }
+"  Plugin 'kien/ctrlp.vim'
+"  Plugin 'FelikZ/ctrlp-py-matcher'
+"  let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+"  let g:ctrlp_custom_ignore = {
+"  \ 'dir':  '\v[\/](doc|tmp|node_modules)',
+"  \ 'file': '\v\.(exe|so|dll)$',
+"  \ }
 "}
 
 "Emmet {
 Plugin 'mattn/emmet-vim'
-"}
-
-"Goden ratio {
-  Plugin 'roman/golden-ratio'
-  let g:golden_ratio_filetypes_blacklist = ["nerdtree", "unite"]
 "}
 
 "Vue {
@@ -86,7 +140,6 @@ call vundle#end()            " required
   set shiftwidth=2    " Indents will have a width of 4.
   set softtabstop=2   " Sets the number of columns for a TAB.
   set expandtab       " Expand TABs to spaces.
-  set clipboard=unnamedplus
 "}
 
 "Maps commands
