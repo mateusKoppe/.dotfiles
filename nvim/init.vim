@@ -64,10 +64,9 @@ Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plugin 'jparise/vim-graphql'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier']  " list of CoC extensions needed
+let g:coc_global_extensions = [ 'coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-vetur', 'coc-python', 'coc-clangd' ]  " list of CoC extensions needed
 
 Plugin 'jiangmiao/auto-pairs'
 
@@ -81,8 +80,13 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 "Closetag {
   Plugin 'alvan/vim-closetag'
-  let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-  let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.jsx"
+  let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
+  let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php,*.jsx,*.js"
+"}
+
+"IndentLine {
+  Plugin 'Yggdroot/indentLine'
+  "let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 "}
 
 "Fugitive {
@@ -120,6 +124,7 @@ Plugin 'xolox/vim-misc'
 "Airline {
   Plugin 'vim-airline/vim-airline'
   let g:airline_theme='nord'
+  let g:airline#extensions#branch#enabled=1
 "}
 
 
@@ -132,6 +137,7 @@ call vundle#end()            " required
   set guifont=JetBrains\ Mono:h12
   syntax enable
   syntax on
+  set nowrap
   filetype plugin indent on    " required
   set termguicolors     " enable true colors support
   set colorcolumn=80
@@ -142,11 +148,14 @@ call vundle#end()            " required
   set expandtab       " Expand TABs to spaces.
 "}
 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 "Maps commands
 map <c-j> :m .+1<CR>==
 map <c-k> :m .-2<CR>==
 map <c-h> Y`]p
 map <c-a> ggvG$
+map <c-I> :CocCommand prettier.formatFile<CR>
 
 "Tabs {
   map <c-t>h :tabprevious<CR>
