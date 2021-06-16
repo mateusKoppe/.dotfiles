@@ -8,7 +8,6 @@ remove_symlinks(){
   rm -fr ${HOME}/.fonts
   rm -f ${HOME}/.zshrc
   rm -f ${HOME}/.tmux.conf
-  rm -f ${HOME}/.config/nvim/init.vim
   rm -f ${HOME}/.config/deadd
   rm -f ${HOME}/.p10k.zsh
   rm -f ${HOME}/.config/i3 -r
@@ -24,8 +23,6 @@ create_symlinks(){
   ln -s ${DOTFILES_PATH}/deadd ${HOME}/.config/deadd
   ln -s ${DOTFILES_PATH}/.tmux.conf ${HOME}/.tmux.conf
   ln -s ${DOTFILES_PATH}/zsh/.p10k.zsh ${HOME}/.p10k.zsh
-  mkdir -p ${HOME}/.config/nvim
-  ln -s ${DOTFILES_PATH}/nvim/init.vim ${HOME}/.config/nvim/init.vim
   ln -s ${DOTFILES_PATH}/i3 ${HOME}/.config/i3
   ln -s ${DOTFILES_PATH}/polybar ${HOME}/.config/polybar
   ln -s ${DOTFILES_PATH}/rofi ${HOME}/.config/rofi

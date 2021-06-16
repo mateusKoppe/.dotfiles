@@ -106,5 +106,8 @@ alias ls!=/usr/bin/ls
 alias cat=bat
 alias cat!=/usr/bin/cat
 
+
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
