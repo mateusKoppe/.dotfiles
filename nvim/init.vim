@@ -20,6 +20,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
 nnoremap <C-p> :Files<CR>
 nnoremap <A-f> :Rg<CR>
 let g:fzf_action = {
