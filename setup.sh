@@ -1,29 +1,42 @@
 #!/bin/bash
 
+HOME=${HOME}
 PWD=`pwd`
+DIR="$(dirname $(readlink -f $0))"
 
 install_softwares(){
-    echo "Updating..."
-    sudo pacman Syu -q --noconfirm
-    sudo pacman -Sq git exa bat --noconfirm
+  echo "Updating..."
+  sudo pacman Syu -q --noconfirm
+  sudo pacman -Sq git exa bat --noconfirm
+  rm -fr ${HOME}/.fonts
+  rm -fr ${HOME}/.config/kitty
+  ln -s ${DIR}/fonts ${HOME}/.fonts
+  ln -s ${DIR}/kitty ${HOME}/.config/kitty
 }
 
 install_zsh(){
-    echo "Installing zsh..."
-    sudo pacman -Sq zsh --noconfirm
-    echo "Installing Ohmyzsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-    echo "Installing powerlevel10k..."
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+  printf "\n"
+  echo -n "Do you wish to install zsh with its configurations? [y/N] "
+  read answer
+  echo $answer
+  if [ "$answer" != "${answer#[yY]}" ]; then
+    ./zsh/install.sh;
+  fi
 }
 
 install_i3(){
-    sudo pacman -Sq i3 rofi polybar feh i3lock --noconfirm
+  printf "\n"
+  echo -n "Do you wish to install i3 with its configurations? [y/N] "
+  read answer
+  echo $answer
+  if [ "$answer" != "${answer#[yY]}" ]; then
+    ./i3/install.sh;
+  fi
 }
 
 install_neovim(){
-  printf "\n\n"
-  echo -n "Do you wish to use neovim with the configurations? [y/N] "
+  printf "\n"
+  echo -n "Do you wish to use neovim with its configurations? [y/N] "
   read answer
   echo $answer
   if [ "$answer" != "${answer#[yY]}" ]; then
@@ -33,4 +46,5 @@ install_neovim(){
 
 install_softwares
 install_neovim
+install_i3
 install_zsh
