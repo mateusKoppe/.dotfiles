@@ -7,7 +7,7 @@ rm -fr ${HOME}/.config/nvim
 mkdir -p ${HOME}/.config/nvim
 
 echo "Installing neovim"
-sudo pacman -Sq --noconfirm neovim
+sudo pacman -Sq --noconfirm neovim fzf
 echo "Installing Vundle.vim..."
 git clone https://github.com/VundleVim/Vundle.vim.git $VUNDLE_PATH
 nvim +PluginInstall +qall
