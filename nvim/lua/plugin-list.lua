@@ -28,6 +28,13 @@ return packer.startup(
       requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
 
+    -- using packer.nvim
+    use {
+      "akinsho/nvim-bufferline.lua",
+      requires = "kyazdani42/nvim-web-devicons"
+    }
+
+
 
     use "arcticicestudio/nord-vim"
 
