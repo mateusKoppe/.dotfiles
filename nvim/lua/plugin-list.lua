@@ -21,6 +21,14 @@ return packer.startup(
       requires = {{"kyazdani42/nvim-web-devicons"}}
     }
 
+    use {
+      'glepnir/galaxyline.nvim',
+      branch = 'main',
+      -- some optional icons
+      requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
+
+
     use "arcticicestudio/nord-vim"
 
   end

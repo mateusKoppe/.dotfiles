@@ -1,7 +1,7 @@
 
 vim.api.nvim_set_keymap(
     "n",
-    "<C-/>",
+    "<C-\\>",
     ":NvimTreeToggle<CR>",
     {
         noremap = true,
