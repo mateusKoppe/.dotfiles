@@ -7,6 +7,7 @@ feh --bg-fill ~/Pictures/Wallpaper/demon-slayer.jpg $
 
 $HOME/.config/polybar/launch.sh &
 
+xsetroot -cursor_name left_ptr &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
