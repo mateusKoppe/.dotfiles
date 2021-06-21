@@ -1,17 +1,10 @@
-HOME=${HOME}
-PWD=`pwd`
 DOTFILES_PATH="$(dirname $(readlink -f $0))"
-VUNDLE_PATH="${HOME}/.config/nvim/bundle/Vundle.vim"
 
-rm -fr ${HOME}/.config/nvim
-mkdir -p ${HOME}/.config/nvim
+rm -r ~/.config/nvim
+ln -s ${DOTFILES_PATH} ~/.config/nvim
 
-echo "Installing neovim"
-sudo pacman -Sq --noconfirm neovim fzf the_silver_searcher
-echo "Installing Vundle.vim..."
-git clone https://github.com/VundleVim/Vundle.vim.git $VUNDLE_PATH
-nvim +PluginInstall +qall
+echo "Installing Packer..."
+git clone https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+nvim -u ~/.config/nvim/init.lua +PackerInstall
 
-git config --global core.editor nvim
-
-ln -s ${DOTFILES_PATH}/init.vim ${HOME}/.config/nvim/init.vim
