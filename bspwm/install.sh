@@ -1,5 +1,6 @@
 #!/bin/bash
-sudo pacman -S --noconfirm bspwm sxhkd picom feh polybar
+sudo pacman -S --noconfirm bspwm sxhkd picom feh polybar xorg-xbacklight
+yay nerd-fonts-fira-code
 
 HOME=${HOME}
 DIR="$(dirname $(readlink -f $0))"
