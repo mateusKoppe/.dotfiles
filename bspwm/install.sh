@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo pacman -S --noconfirm bspwm sxhkd picom feh polybar xorg-xbacklight
+sudo pacman -S --noconfirm bspwm sxhkd picom feh polybar xorg-xbacklight rofi xorg-xsetroot
 yay nerd-fonts-fira-code
 
 HOME=${HOME}
