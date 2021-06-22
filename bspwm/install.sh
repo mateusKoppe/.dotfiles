@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo pacman -S --noconfirm bspwm sxhkd picom feh polybar xorg-xbacklight rofi xorg-xsetroot
-yay nerd-fonts-fira-code scrot
+yay nerd-fonts-fira-code scrot bluez-utils
 
 DIR="$(dirname $(readlink -f $0))"
 

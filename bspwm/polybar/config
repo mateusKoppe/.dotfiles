@@ -220,7 +220,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0
+interface = ${env:DEFAULT_NETWORK_INTERFACE_WL:wlp7s0}
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -242,7 +242,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp2s0
+interface = ${env:DEFAULT_NETWORK_INTERFACE_EN:enp8s0}
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -330,8 +330,8 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
-battery = BAT1
-adapter = ACAD
+battery = ${env:DEFAULT_BATTERY:BAT0}
+adapter = ${env:DEFAULT_BATTERY_ADAPTER:ACAD}
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>

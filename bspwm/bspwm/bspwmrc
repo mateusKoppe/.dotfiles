@@ -1,10 +1,9 @@
 #! /bin/sh
 
-feh --bg-scale ~/.config/bspwm/wallpaper.jpg &
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 picom &
-feh --bg-fill ~/Pictures/Wallpaper/demon-slayer.jpg $
+feh --bg-scale ~/.config/bspwm/wallpaper.jpg &
 
 $HOME/.config/polybar/launch.sh &
 
