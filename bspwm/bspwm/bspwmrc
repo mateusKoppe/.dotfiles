@@ -1,6 +1,6 @@
 #! /bin/sh
 
-feh --bg-scale ~/.config/bspwmrc/wallpaper.jpg &
+feh --bg-scale ~/.config/bspwm/wallpaper.jpg &
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 picom &
