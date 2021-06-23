@@ -57,7 +57,7 @@ font-2 = FiraCode Nerd Font:size=12;1
 
 modules-left = bspwm i3
 modules-center = mpd
-modules-right = xbacklight alsa xkeyboard wlan eth battery date powermenu
+modules-right = alsa backlight-acpi xkeyboard wlan eth battery date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -198,9 +198,13 @@ bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
 
 [module/backlight-acpi]
-inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
+
+format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = " "
+format = <label>
+format-underline = ${colors.primary}
 
 [module/cpu]
 type = internal/cpu
