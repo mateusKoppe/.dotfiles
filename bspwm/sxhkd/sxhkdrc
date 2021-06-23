@@ -16,6 +16,24 @@ super + d
 ctrl + shift + Print
         scrot -so /tmp/test && cat /tmp/test | xclip -i -selection clipboard -target image/png
 
+## Media keys
+XF86Audio{Play,Stop,Prev,Next}
+        playerctl {play-pause,stop,previous,next}
+
+XF86Audio{LowerVolume,RaiseVolume}
+        amixer set Master 5%{-,+}
+
+XF86AudioMute
+        amixer -D pulse set Master 1+ toggle
+
+XF86MonBrightness{Up,Down}
+        xbacklight -{inc,dec} 10
+
+#ctrl + {Home,End,Prior,Next}
+
+super + alt + p
+        playerctl play-pause
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
