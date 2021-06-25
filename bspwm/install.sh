@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo pacman -S --noconfirm bspwm sxhkd picom feh polybar xorg-xbacklight rofi xorg-xsetroot brightnessctl
+sudo pacman -S --noconfirm bspwm sxhkd picom polybar xorg-xbacklight rofi xorg-xsetroot brightnessctl nitrogen
 yay nerd-fonts-fira-code scrot bluez-utils
 
 DIR="$(dirname $(readlink -f $0))"
@@ -10,3 +10,5 @@ rm -r ~/.config/sxhkd
 ln -s ${DIR}/sxhkd ~/.config/sxhkd
 rm -r ~/.config/polybar
 ln -s ${DIR}/polybar ~/.config/polybar
+
+nitrogen --set-scaled ~/.config/bspwm/wallpaper.jpg

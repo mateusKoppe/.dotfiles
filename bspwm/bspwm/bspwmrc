@@ -3,7 +3,7 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 picom &
-feh --bg-scale ~/.config/bspwm/wallpaper.jpg &
+nitrogen --restore &
 
 $HOME/.config/polybar/launch.sh &
 
