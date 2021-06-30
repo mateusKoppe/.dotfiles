@@ -12,6 +12,6 @@ export DEFAULT_BATTERY_ADAPTER=$(ls -1 /sys/class/power_supply | grep -v 'BAT' |
 
 # Launch bar1 and bar2
 echo "---" | tee -a /tmp/polybar1.log
-polybar main 2>&1 | tee -a /tmp/polybar1.log & disown
+polybar main -c ~/.config/polybar/config.ini 2>&1 | tee -a /tmp/polybar1.log & disown
 
 echo "Bars launched..."
