@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + d
-	rofi -show drun -show-icons
+	rofi -show drun -theme ~/.config/rofi/config.rasi
 
 #
 # Screnshots
