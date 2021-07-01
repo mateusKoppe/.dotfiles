@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo pacman -S --noconfirm bspwm sxhkd picom polybar xorg-xbacklight rofi xorg-xsetroot brightnessctl nitrogen xorg-xrbd
+sudo pacman -S --noconfirm bspwm sxhkd picom polybar xorg-xbacklight rofi xorg-xsetroot brightnessctl nitrogen xorg-xrbd dunst
 yay nerd-fonts-fira-code scrot bluez-utils
 
 DIR="$(dirname $(readlink -f $0))"
