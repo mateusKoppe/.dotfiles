@@ -12,5 +12,7 @@ rm -r ~/.config/polybar
 ln -s ${DIR}/polybar ~/.config/polybar
 rm -r ~/.config/rofi
 ln -s ${DIR}/rofi ~/.config/rofi
+rm -r ~/.Xresources
+ln -s ${DIR}/.Xresources ~/.config/Xresources
 
 nitrogen --set-scaled ~/.config/bspwm/wallpaper.jpg
