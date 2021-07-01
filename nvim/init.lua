@@ -13,3 +13,4 @@ require "key-mappings"
 require "styles"
 
 vim.o.mouse = "a"
+vim.api.nvim_command('set clipboard+=unnamedplus')
