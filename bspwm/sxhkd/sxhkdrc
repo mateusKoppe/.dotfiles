@@ -32,17 +32,24 @@ XF86AudioMute
 XF86MonBrightness{Up,Down}
         brightnessctl s 10%{+,-}
 
-#ctrl + {Home,End,Prior,Next}
-
 super + alt + p
         playerctl play-pause
 
-
+        
 #
 # Applications
 #
 super + shift + f
         firefox
+
+super + alt + s
+        ~/.config/rofi/scripts/settings.sh
+
+super + alt + k
+        ~/.config/rofi/scripts/keyboard-language.sh
+
+super + alt + o
+        ~/.config/rofi/scripts/powermenu.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
