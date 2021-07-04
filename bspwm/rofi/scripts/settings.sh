@@ -4,6 +4,7 @@ selected=$(echo "Network Connect
 Network Settings
 Bluetooth
 Keyboard Layout
+Audio
 Background
 Cancel" | rofi -dmenu -p "Keyboard layout: ")
 
@@ -18,6 +19,9 @@ if [ "$selected" == "Bluetooth" ]; then
 fi
 if [ "$selected" == "Keyboard Layout" ]; then
   ~/.config/rofi/scripts/keyboard-language.sh
+fi
+if [ "$selected" == "Audio" ]; then
+  pavucontrol
 fi
 if [ "$selected" == "Background" ]; then
   nitrogen

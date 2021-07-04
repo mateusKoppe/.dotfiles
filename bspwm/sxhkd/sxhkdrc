@@ -35,6 +35,11 @@ XF86MonBrightness{Up,Down}
 super + alt + p
         playerctl play-pause
 
+super alt + {_,shift} + v
+        amixer set Master 5%{+,-}
+
+super alt + {_,shift} + b
+        brightnessctl s 10%{+,-}
         
 #
 # Applications
