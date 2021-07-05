@@ -10,7 +10,7 @@ super + Return
 super + d
 	rofi -show drun -theme ~/.config/rofi/config.rasi
 
-super + alt + l
+super + ctrl + alt + l
         ~/.dotfiles/bspwm/scripts/lock.sh
 
 #

@@ -3,13 +3,14 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 picom &
+
+#autorandr -c --skip-option crtc &
+#bspc query -M  --names
+~/.config/bspwm/scripts/handle-monitors.sh &
+~/.config/polybar/launch.sh &
+
 nitrogen --restore &
-
-$HOME/.config/polybar/launch.sh &
-
 xsetroot -cursor_name left_ptr &
-
-bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width         2
 bspc config window_gap          12

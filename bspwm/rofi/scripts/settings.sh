@@ -5,8 +5,9 @@ Network Settings
 Bluetooth
 Keyboard Layout
 Audio
+Refresh Monitors
 Background
-Cancel" | rofi -dmenu -p "Keyboard layout: ")
+Cancel" | rofi -dmenu -p "Settings: ")
 
 if [ "$selected" == "Network Connect" ]; then
   networkmanager_dmenu
@@ -22,6 +23,11 @@ if [ "$selected" == "Keyboard Layout" ]; then
 fi
 if [ "$selected" == "Audio" ]; then
   pavucontrol
+fi
+if [ "$selected" == "Refresh Monitors" ]; then
+  autorandr -c --skip-option crtc
+  ~/.config/bspwm/scripts/handle-monitors.sh
+  ~/.config/polybar/launch.sh
 fi
 if [ "$selected" == "Background" ]; then
   nitrogen
