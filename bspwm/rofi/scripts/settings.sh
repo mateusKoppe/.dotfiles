@@ -25,9 +25,7 @@ if [ "$selected" == "Audio" ]; then
   pavucontrol
 fi
 if [ "$selected" == "Refresh Monitors" ]; then
-  autorandr -c --skip-option crtc
   ~/.config/bspwm/scripts/handle-monitors.sh
-  ~/.config/polybar/launch.sh
 fi
 if [ "$selected" == "Background" ]; then
   nitrogen

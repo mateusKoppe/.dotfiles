@@ -6,6 +6,8 @@ if ! type "xrandr"; then
   exit
 fi
 
+autorandr -c --skip-option crtc
+
 ## Sorted connected monitors from left to rigth
 monitors=$(xrandr --query | grep " connected" | sed 's/\([[:graph:]]*\).*x[[:digit:]]\++\([[:digit:]]\+\).*/\2 \1/' | sort -n | cut -d " " -f2)
 primary=$(xrandr --query | grep "primary" | cut -d " " -f1)
@@ -26,3 +28,5 @@ for m in $monitors; do
   ws_index=$last_index
 done
 
+~/.config/polybar/launch.sh &
+nitrogen --restore &
