@@ -29,7 +29,7 @@ fg = #e5e9f0
 [bar/main]
 monitor = ${env:MONITOR:}
 width = 100%
-height = 32
+height = 26
 offset-x = 0
 offset-y = 0
 bottom = false
@@ -47,9 +47,9 @@ module-margin-right = 3
 
 ;========================FONTS==================================
 
-font-0 = "FreeSans:pixelsize=13;3"
-font-1 = "Material Icons:size=15;5"
-font-2 = "Font Awesome 5 Free Regular:size=15;3"
+font-0 = "FreeSans:pixelsize=11;3"
+font-1 = "Material Icons:size=12;5"
+font-2 = "Font Awesome 5 Free Regular:size=12;3"
 
 ;=========================TRAY AND STUFF=================================
 
@@ -64,7 +64,7 @@ tray-maxsize = 16
 
 modules-left = rofi i3 xwindow
 modules-center = date
-modules-right = memory cpu battery player-status notifications volume
+modules-right = battery player-status volume
 
 ;========================MODULES==================================
 
@@ -131,11 +131,6 @@ click-left = ~/.config/rofi/music_menu
 label = %output%
 label-maxlen = 40
 label-underline = ${color.green}
-
-[module/notifications]
-type = custom/text
-content  = 
-click-left = kill -s USR1 $(pidof deadd-notification-center)
 
 [module/xwindow]
 type = internal/xwindow

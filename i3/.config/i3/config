@@ -191,13 +191,9 @@ bindsym $mod+Shift+o resize grow width 1 px or 1 ppt
 bindsym $mod+p exec "kill -s USR1 $(pidof deadd-notification-center)"
 
 ## Startups
-exec_always --no-startup-id "killall -q deadd-notification-center"
+exec_always --no-startup-id feh --bg-fill ~/.config/i3/wallpaper-nord.jpg
+exec_always --no-startup-id "~/.config/i3/picom.sh"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id feh --bg-fill $HOME/.dotfiles/i3/wallpaper-nord.jpg
-exec_always --no-startup-id xrandr --output HDMI-1-1 --auto --right-of eDP-1
-exec_always --no-startup-id "~/.config/i3/start_picom.sh"
-exec_always --no-startup-id "deadd-notification-center"
-exec_always --no-startup-id "picom"
 
 set $background #2e3440
 set $focused_background #434c5e
