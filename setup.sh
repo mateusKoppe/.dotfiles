@@ -8,10 +8,6 @@ install_softwares(){
   echo "Updating..."
   sudo pacman Syu -q --noconfirm
   sudo pacman -Sq git exa bat --noconfirm
-  rm -fr ${HOME}/.fonts
-  rm -fr ${HOME}/.config/kitty
-  ln -s ${DIR}/fonts ${HOME}/.fonts
-  ln -s ${DIR}/kitty ${HOME}/.config/kitty
 }
 
 install_zsh(){
