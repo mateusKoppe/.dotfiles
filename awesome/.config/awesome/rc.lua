@@ -47,7 +47,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(os.getenv("HOME") .. "/.config/awesome/theme.lua")
 beautiful.useless_gap = 5
 beautiful.gap_single_client = false
 
@@ -182,7 +182,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ "Browser", "Code", "Chat", "Misc", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -209,7 +209,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "top", screen = s, bg = beautiful.bg_normal })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -582,5 +582,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autostart Applications
+awful.spawn.with_shell("autorandr -c")
 awful.spawn.with_shell("picom --experimental-backend")
-awful.spawn.with_shell("sleep 0.5 && nitrogen --restore")
+awful.spawn.with_shell("nm-applet")
+awful.spawn.with_shell("(killall volumeicon || true) && volumeicon")
