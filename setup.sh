@@ -7,7 +7,6 @@ DIR="$(dirname $(readlink -f $0))"
 install_softwares(){
   echo "Updating..."
   sudo pacman Syu -q --noconfirm
-  sudo pacman -Sq git exa bat --noconfirm
 }
 
 install_zsh(){
@@ -42,5 +41,4 @@ install_neovim(){
 
 install_softwares
 install_neovim
-install_i3
 install_zsh
