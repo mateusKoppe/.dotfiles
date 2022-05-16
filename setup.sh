@@ -16,12 +16,6 @@ install_zsh(){
   fi
 }
 
-install_i3(){
-  if confirm "Setup I3?"; then
-    ./scripts/setup-i3.sh;
-  fi
-}
-
 install_neovim(){
   if confirm "Setup Neovim?"; then
     ./scripts/setup-neovim.sh;
