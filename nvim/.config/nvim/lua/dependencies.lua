@@ -17,8 +17,16 @@ return packer.startup(
       }
     }
 
+    use {
+      "windwp/nvim-autopairs",
+      config = function() require("nvim-autopairs").setup {} end
+    }
+
     -- Git
-    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+    use {
+      'lewis6991/gitsigns.nvim',
+      -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+    }
 
     -- LSP
     use 'neovim/nvim-lspconfig'
@@ -37,6 +45,15 @@ return packer.startup(
       requires = { 'kyazdani42/nvim-web-devicons' }
     }
     use 'Mofiqul/dracula.nvim'
+
+    -- Startscreen
+    use {
+      'goolord/alpha-nvim',
+      requires = { 'kyazdani42/nvim-web-devicons' },
+      config = function ()
+        require'alpha'.setup(require'alpha.themes.startify'.config)
+      end
+    }
 
     -- Tabs
     use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
