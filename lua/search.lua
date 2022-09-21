@@ -1,34 +1,15 @@
-require('telescope').setup({
-  defaults = {
-    -- Default configuration for telescope goes here:
-    -- config_key = value,
-    mappings = {
-      i = {
-        -- map actions.which_key to <C-h> (default: <C-/>)
-        -- actions.which_key shows the mappings for your picker,
-        -- e.g. git_{create, delete, ...}_branch for the git_branches picker
-        -- ["<C-h>"] = "which_key"
-      }
-    }
-  },
-  pickers = {
-    -- Default configuration for builtin pickers goes here:
-    -- picker_name = {
-    --   picker_config_key = value,
-    --   ...
-    -- }
-    -- Now the picker_config_key will be applied every time you call this
-    -- builtin picker
-  },
-  extensions = {
-    -- Your extension configuration goes here:
-    -- extension_name = {
-    --   extension_config_key = value,
-    -- }
-    -- please take a look at the readme of the extension you want to configure
-  }
-})
+local wk = require("which-key")
 
-vim.keymap.set('n', '<C-p>', require('telescope.builtin').find_files)
-vim.keymap.set('n', '<leader>fg', require('telescope.builtin').git_files)
-vim.keymap.set('n', '<leader>fF', require('telescope.builtin').live_grep)
+require("telescope").setup({})
+
+wk.register({
+  ["<leader>"] = {
+    f = {
+      name = "+search",
+      f = { "<cmd>Telescope find_files<cr>", "Find File" },
+      q = { "<cmd>Telescope live_grep<cr>", "Find by Query" },
+      q = { "<cmd>Telescope git_files<cr>", "Git Files" },
+      r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+    },
+  },
+})

@@ -32,6 +32,7 @@ return packer.startup(
 
     -- LSP
     use 'neovim/nvim-lspconfig'
+    use "williamboman/mason.nvim"
    
     -- Search
     use {
@@ -47,6 +48,7 @@ return packer.startup(
       requires = { 'kyazdani42/nvim-web-devicons' }
     }
     use 'Mofiqul/dracula.nvim'
+    use "lukas-reineke/indent-blankline.nvim"
 
     -- Startscreen
     use {
@@ -65,6 +67,9 @@ return packer.startup(
       'kyazdani42/nvim-tree.lua',
       requires = 'kyazdani42/nvim-web-devicons'
     }
+
+    -- Which key
+    use { "folke/which-key.nvim" }
 
   end
 )
