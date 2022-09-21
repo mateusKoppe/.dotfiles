@@ -22,6 +22,8 @@ return packer.startup(
       config = function() require("nvim-autopairs").setup {} end
     }
 
+    use "numToStr/Comment.nvim"
+
     -- Git
     use {
       'lewis6991/gitsigns.nvim',
