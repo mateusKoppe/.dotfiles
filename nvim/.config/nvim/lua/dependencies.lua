@@ -31,7 +31,15 @@ return packer.startup(
     }
 
     -- LSP
-    use 'neovim/nvim-lspconfig'
+    use {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
+    }
+    -- use {
+    --   "jose-elias-alvarez/null-ls.nvim",
+    --   requires = { {'nvim-lua/plenary.nvim'}}
+    -- }
    
     -- Search
     use {
@@ -41,12 +49,17 @@ return packer.startup(
 
     -- Syntax
     use "nvim-treesitter/nvim-treesitter"
+    use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+    }
 
     use {
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons' }
     }
     use 'Mofiqul/dracula.nvim'
+    use "lukas-reineke/indent-blankline.nvim"
 
     -- Startscreen
     use {
@@ -65,6 +78,9 @@ return packer.startup(
       'kyazdani42/nvim-tree.lua',
       requires = 'kyazdani42/nvim-web-devicons'
     }
+
+    -- Which key
+    use { "folke/which-key.nvim" }
 
   end
 )
