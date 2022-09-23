@@ -50,4 +50,5 @@ local config = {
 require('lspconfig')['pyright'].setup(config)
 require('lspconfig')['tsserver'].setup(config)
 require('lspconfig')['sumneko_lua'].setup(config)
+require('lspconfig')['rust_analyzer'].setup(config)
 
