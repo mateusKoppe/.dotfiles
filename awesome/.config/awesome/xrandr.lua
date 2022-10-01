@@ -9,20 +9,20 @@ local icon_path = ""
 
 -- Get active outputs
 local function outputs()
-   local outputs = {}
+   local result_outputs = {}
    local xrandr = io.popen("xrandr -q --current")
 
    if xrandr then
       for line in xrandr:lines() do
          local output = line:match("^([%w-]+) connected ")
          if output then
-            outputs[#outputs + 1] = output
+            result_outputs[#result_outputs + 1] = output
                                    end
       end
       xrandr:close()
    end
 
-   return outputs
+   return result_outputs
 end
 
 local function arrange(out)
@@ -52,7 +52,7 @@ end
 
 -- Build available choices
 local function menu()
-   local menu = {}
+   local menu_data = {}
    local out = outputs()
    local choices = arrange(out)
 
@@ -82,10 +82,10 @@ local function menu()
          end
       end
 
-      menu[#menu + 1] = { label, cmd }
+      menu_data[#menu_data + 1] = { label, cmd }
    end
 
-   return menu
+   return menu_data
 end
 
 -- Display xrandr notifications from choices
