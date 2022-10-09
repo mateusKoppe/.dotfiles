@@ -37,6 +37,18 @@ M.mymainmenu = awful.menu({
 	},
 })
 
+-- local batterywidget = wibox.widget.textbox()
+-- batterywidget:set_text(" | Battery | ")
+-- local batterywidgettimer = gears.timer({ timeout = 5 })
+-- batterywidgettimer:connect_signal("timeout",
+--   function()
+--     local fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))
+--     batterywidget:set_text(" |" .. fh:read("*l") .. " | ")
+--     fh:close()
+--   end
+-- )
+-- batterywidgettimer:start()
+
 local mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = M.mymainmenu })
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -112,10 +124,35 @@ M.create = function(s)
 		screen = s,
 		filter = awful.widget.tasklist.filter.currenttags,
 		buttons = tasklist_buttons,
+
+		widget_template = {
+        {
+            {
+                {
+                    {
+                        id     = 'icon_role',
+                        widget = wibox.widget.imagebox,
+                    },
+                    margins = 5,
+                    widget  = wibox.container.margin,
+                },
+                layout = wibox.layout.fixed.horizontal,
+            },
+            left  = 5,
+            right = 0,
+            widget = wibox.container.margin
+        },
+        id     = 'background_role',
+        widget = wibox.container.background,
+    },
 	})
 
 	-- Create the wibox
-	s.mywibox = awful.wibar({ position = "top", screen = s, bg = beautiful.bg_normal })
+	s.mywibox = awful.wibar({
+		position = "top",
+		screen = s,
+		bg = beautiful.bg_normal,
+	})
 
 	-- Add widgets to the wibox
 	s.mywibox:setup({
@@ -125,13 +162,17 @@ M.create = function(s)
 			mylauncher,
 			s.mytaglist,
 			s.mypromptbox,
+			s.mytasklist, -- Middle widget
 		},
-		s.mytasklist, -- Middle widget
+		{
+			layout = wibox.layout.fixed.horizontal,
+			mytextclock,
+		},
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
+			-- batterywidgettimer,
 			mykeyboardlayout,
 			wibox.widget.systray(),
-			mytextclock,
 			s.mylayoutbox,
 		},
 	})
