@@ -4,6 +4,7 @@ local config = require("config")
 local hotkeys_popup = require("awful.hotkeys_popup")
 local xrandr = require("xrandr")
 local topbar = require("components.topbar")
+local screenshot = require("screenshot")
 
 local M = {}
 
@@ -12,7 +13,13 @@ M.globalkeys = gears.table.join(
 	awful.key({ config.modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
 	awful.key({ config.modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
 	awful.key({ config.modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
-	awful.key({ config.modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
+	-- awful.key({ config.modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
+	awful.key({ config.modkey }, "Escape", function()
+		awful.spawn("i3lock -i /home/koppe/Pictures/psyduck-white-letter.png")
+	end, { description = "Lock", group = "tag" }),
+
+awful.key({ }, "Print", screenshot.take,
+          {description = "Take a screenshot of entire screen", group = "screenshot"}),
 
 	-- awful.key({ config.modkey }, "Print", screenshot.open,
 	--           {description = "Open Gnome screenshot", group = "screenshot"}),

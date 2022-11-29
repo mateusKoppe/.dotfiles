@@ -28,7 +28,7 @@ local mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-local mytextclock = wibox.widget.textclock()
+local mytextclock = wibox.widget.textclock("%d/%m/%y %H:%M")
 
 M.mymainmenu = awful.menu({
 	items = {
@@ -37,17 +37,18 @@ M.mymainmenu = awful.menu({
 	},
 })
 
--- local batterywidget = wibox.widget.textbox()
--- batterywidget:set_text(" | Battery | ")
--- local batterywidgettimer = gears.timer({ timeout = 5 })
--- batterywidgettimer:connect_signal("timeout",
---   function()
---     local fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))
---     batterywidget:set_text(" |" .. fh:read("*l") .. " | ")
---     fh:close()
---   end
--- )
--- batterywidgettimer:start()
+local batterywidget = wibox.widget.textbox()
+local fh = assert(io.popen("acpi | cut -d, -f 2,2 -", "r"))
+batterywidget:set_text(" |   " .. fh:read("*l") .. " | ")
+local batterywidgettimer = gears.timer({ timeout = 5, auto_start = true })
+batterywidgettimer:connect_signal("timeout",
+  function()
+    local fh = assert(io.popen("acpi | cut -d, -f 2,2 -", "r"))
+    batterywidget:set_text(" |   " .. fh:read("*l") .. " | ")
+    fh:close()
+  end
+)
+batterywidgettimer:start()
 
 local mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = M.mymainmenu })
 -- Create a wibox for each screen and add it
@@ -166,11 +167,11 @@ M.create = function(s)
 		},
 		{
 			layout = wibox.layout.fixed.horizontal,
-			mytextclock,
 		},
 		{ -- Right widgets
 			layout = wibox.layout.fixed.horizontal,
-			-- batterywidgettimer,
+			mytextclock,
+			batterywidget,
 			mykeyboardlayout,
 			wibox.widget.systray(),
 			s.mylayoutbox,
