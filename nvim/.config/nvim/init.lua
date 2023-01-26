@@ -1,14 +1,10 @@
 require "dependencies"
 require "shortcuts"
-require "autocomplete"
-require "autopair"
 require "basic_config"
-require "git"
-require "lsp"
-require "search"
-require "syntax"
-require "startscreen"
-require "tree"
-require "ui"
-require "utils"
-require "keys"
+
+local config = require("config")
+for _, features in pairs(config.features) do
+    if (features.active) then
+    features.config()
+    end
+end
