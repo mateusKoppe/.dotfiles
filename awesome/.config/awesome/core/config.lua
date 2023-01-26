@@ -8,4 +8,6 @@ M.editor_cmd = M.terminal .. " -e " .. M.editor
 M.modkey = "Mod4"
 M.altkey = "Mod1"
 
+M.titlebar = false
+
 return M
