@@ -1,12 +1,30 @@
-local keymap = vim.keymap.set
-
-local default_opts = { noremap = true, silent = true }
-local expr_opts = { noremap = true, expr = true, silent = true }
+local wk = require("which-key")
 
 vim.g.mapleader = " "
 
--- Improved Terminal Navigation
--- keymap("t", "<C-h>", "<C-w>h", expr_opts)
--- maps.t["<C-j>"] = { "<c-\\><c-n><c-w>j", desc = "Terminal down window navigation" }
--- maps.t["<C-k>"] = { "<c-\\><c-n><c-w>k", desc = "Terminal up window navigation" }
--- maps.t["<C-l>"] = { "<c-\\><c-n><c-w>l", desc = "Terminal right window navigation" }
+vim.keymap.set("n", "<C-h>", "<C-w>h<CR>")
+vim.keymap.set("n", "<C-j>", "<C-w>j<CR>")
+vim.keymap.set("n", "<C-k>", "<C-w>k<CR>")
+vim.keymap.set("n", "<C-l>", "<C-w>l<CR>")
+
+
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+--vim.keymap.set("n", "<leader>w", ":w<CR>")
+--vim.keymap.set("n", "<leader>q", ":q<CR>")
+--vim.keymap.set("n", "<leader>c", ":q<CR>")
+
+
+-- Buffer Navigation
+vim.keymap.set("n", "H", ":bp<CR>")
+vim.keymap.set("n", "L", ":bn<CR>")
+
+
+wk.register({
+  ["<leader>"] = {
+    w = { ":w<CR>", "Save" },
+    q = { ":q<CR>", "Quit" },
+    C = { ":bdel<CR>", "Close Buffer" },
+  },
+})

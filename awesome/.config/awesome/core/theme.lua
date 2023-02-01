@@ -1,7 +1,3 @@
----------------------------
--- Default awesome theme --
----------------------------
-
 local beautiful = require("beautiful")
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
@@ -13,25 +9,26 @@ local themes_path = gfs.get_themes_dir()
 local M = {}
 
 M.theme = {}
+local palette = require("core.colors").machiato
 
-M.theme.font = "sans 8"
+M.theme.font = "JetBrains Mono Regular Nerd Font Complete 9"
 
-M.theme.bg_normal   = "#222222"
-M.theme.bg_focus    = "#535d6c"
-M.theme.bg_urgent   = "#ff0000"
-M.theme.bg_minimize = "#444444"
-M.theme.bg_systray  = M.theme.bg_normal
+M.theme.bg_normal   = palette.base
+M.theme.bg_focus    = palette.crust
+M.theme.bg_urgent   = palette.red
+M.theme.bg_minimize = palette.surface0
+M.theme.bg_systray  = palette.base
 
-M.theme.fg_normal   = "#aaaaaa"
-M.theme.fg_focus    = "#ffffff"
-M.theme.fg_urgent   = "#ffffff"
-M.theme.fg_minimize = "#ffffff"
+M.theme.fg_normal   = palette.subtext0
+M.theme.fg_focus    = palette.blue
+M.theme.fg_urgent   = palette.crust
+M.theme.fg_minimize = palette.text
 
-M.theme.useless_gap   = dpi(0)
+M.theme.useless_gap   = dpi(5)
 M.theme.border_width  = dpi(1)
-M.theme.border_normal = "#000000"
-M.theme.border_focus  = "#535d6c"
-M.theme.border_marked = "#91231c"
+M.theme.border_normal = palette.crust
+M.theme.border_focus  = palette.blue
+M.theme.border_marked = palette.maroon
 
 -- There are other variable sets
 -- overriding the default one when
@@ -130,7 +127,7 @@ M.theme.awesome_icon = theme_assets.awesome_icon(
 M.theme.icon_theme = nil
 
 M.setup = function()
-  beautiful.init(M.theme)
+    beautiful.init(M.theme)
 end
 
 return M

@@ -117,7 +117,7 @@ M.clientkeys = gears.table.join(
       c:raise()
     end,
     { description = "toggle fullscreen", group = "client" }),
-  awful.key({ config.modkey, "Shift" }, "c", function(c) c:kill() end,
+  awful.key({ config.modkey }, "q", function(c) c:kill() end,
     { description = "close", group = "client" }),
   awful.key({ config.modkey, "Control" }, "space", awful.client.floating.toggle,
     { description = "toggle floating", group = "client" }),
@@ -204,7 +204,7 @@ for i = 1, 9 do
   )
 end
 
-M.setup = function ()
+M.setup = function()
   root.keys(M.globalkeys)
 end
 

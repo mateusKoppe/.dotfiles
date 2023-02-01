@@ -9,8 +9,13 @@ vim.o.timeout = true
 vim.o.timeoutlen = 150
 vim.wo.number = true
 
+vim.opt.wrap = true
+vim.opt.hlsearch = false
+
 vim.cmd.colorscheme "catppuccin"
 vim.opt.termguicolors = true
+
+vim.opt.scrolloff = 8
 
 vim.cmd [[
   augroup numbertoggle

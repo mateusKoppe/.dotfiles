@@ -1,6 +1,5 @@
 require "dependencies"
-require "shortcuts"
-require "basic_config"
+require "sets"
 
 local config = require("config")
 for _, features in pairs(config.features) do
@@ -8,3 +7,5 @@ for _, features in pairs(config.features) do
     features.config()
     end
 end
+
+require "shortcuts"
