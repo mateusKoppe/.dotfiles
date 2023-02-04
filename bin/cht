@@ -1,0 +1,7 @@
+#!/bin/bash
+
+LANGUAGE=${1:-lua}
+QUERY=${2:-iterate-array}
+FORMATED_QUERY=`echo $QUERY | tr ' ' '+'`
+
+curl cht.sh/$LANGUAGE/$FORMATED_QUERY

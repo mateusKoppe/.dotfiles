@@ -1,0 +1,5 @@
+#!/bin/bash
+
+CITY=${1:-xap}
+
+curl wttr.in/$@

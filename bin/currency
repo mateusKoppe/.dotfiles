@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+
+MULTIPLIER=${1:-1.0}
+FROM=${2:-"USD"}
+TO=${3:-"BRL"}
+
+MONEY_MASK="[0-9]*\.[0-9]*"
+URL="https://economia.awesomeapi.com.br/json/last/$FROM-$TO"
+
+RATIO=`curl $URL --silent | grep -oEi "\"bid\":\"$MONEY_MASK\"" | grep -oEi "$MONEY_MASK"`
+
+TOTAL=`echo $RATIO*$MULTIPLIER | bc`
+
+echo "$FROM 1 -> $TO $RATIO"
+
+if [ $TOTAL != $RATIO ];
+then
+  echo "$FROM $MULTIPLIER -> $TO $TOTAL"
+fi

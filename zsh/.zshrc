@@ -115,11 +115,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export EDITOR=nvim
+export PATH=$PATH:$HOME/.dotfiles/bin/
 
 WORKSPACE_FOLDER=$HOME/.workspaces
-alias wsp-cd="cd \$(readlink $WORKSPACE_FOLDER/\$(ls $WORKSPACE_FOLDER | fzf))"
-alias wsp-add='echo -n "Project name: ($(basename $(pwd))) " && read name && ln -s $(pwd) $WORKSPACE_FOLDER/${name:-$(basename $(pwd))}'
-alias wsp-rm="rm $WORKSPACE_FOLDER/\$(ls $WORKSPACE_FOLDER | fzf)"
+alias wcd="cd \$(readlink $WORKSPACE_FOLDER/\$(ls $WORKSPACE_FOLDER | fzf))"
+alias wadd='echo -n "Project name: ($(basename $(pwd))) " && read name && ln -s $(pwd) $WORKSPACE_FOLDER/${name:-$(basename $(pwd))}'
+alias wrm="rm $WORKSPACE_FOLDER/\$(ls $WORKSPACE_FOLDER | fzf)"
 
 alias tldrf="tldr --list-all | sed -e $'s/,/\\\n/g' | fzf --preview \"tldr {1} --theme ocean\""
 alias setup-node="nvm use && export PATH=$PATH:./node_modules/.bin/"
