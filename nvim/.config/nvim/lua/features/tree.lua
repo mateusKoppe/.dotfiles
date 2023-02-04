@@ -68,6 +68,11 @@ local M = {
             h = "toggle_hidden",
           },
         },
+
+        filtered_items = {
+          visible = false, -- when true, they will just be displayed differently than normal items
+          hide_dotfiles = false,
+        }
       },
 
       source_selector = {

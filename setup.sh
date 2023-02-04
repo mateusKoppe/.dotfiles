@@ -1,8 +1,28 @@
 #!/bin/bash
 
 PWD=`pwd`
+FALSE=1
+TRUE=0
 
-source scripts/utils.sh
+confirm () {
+  printf "\n"
+
+  DEFAULT=$FALSE
+  DEFAULT_PRINT="[y/N]"
+  if [ "$2" = "y" ]; then
+    DEFAULT=$TRUE
+    DEFAULT_PRINT="[Y/n]"
+  fi
+
+  read -p "${1:-"Confirm?"} $DEFAULT_PRINT: " ANSWER
+
+  case $ANSWER in
+    [yY]) true;;
+    [nN]) false;;
+    *) return $DEFAULT;;
+  esac
+}
+
 
 install_softwares(){
   echo "Updating..."
@@ -12,13 +32,13 @@ install_softwares(){
 
 install_zsh(){
   if confirm "Setup ZSH?"; then
-    ./scripts/setup-zsh.sh;
+    ./zsh/setup.sh;
   fi
 }
 
 install_neovim(){
   if confirm "Setup Neovim?"; then
-    ./scripts/setup-neovim.sh;
+    ./nvim/setup.sh;
   fi
 }
 
