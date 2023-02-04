@@ -10,4 +10,6 @@ M.altkey = "Mod1"
 
 M.titlebar = false
 
+M.tags = { "1", "2", "3", "4", "5", "6" }
+
 return M

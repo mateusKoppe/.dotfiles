@@ -107,7 +107,20 @@ M.globalkeys = gears.table.join(
     { description = "lua execute prompt", group = "awesome" }),
   -- Menubar
   awful.key({ config.modkey }, "p", function() menubar.show() end,
-    { description = "show the menubar", group = "launcher" })
+    { description = "show the menubar", group = "launcher" }),
+
+  awful.key({}, "Print",
+    function()
+      awful.util.spawn_with_shell("xfce4-screenshooter")
+    end,
+    { description = "Open screenshot tool", group = "screenshot" }),
+
+
+  awful.key({ "Shift" }, "Print",
+    function()
+      awful.util.spawn_with_shell("xfce4-screenshooter -cr")
+    end,
+    { description = "Screenshot region to clipboard", group = "screenshot" })
 )
 
 M.clientkeys = gears.table.join(
@@ -155,12 +168,10 @@ M.clientkeys = gears.table.join(
 )
 
 -- Bind all key numbers to tags.
--- Be careful: we use keycodes to make it work on any keyboard layout.
--- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 9 do
+for i = 1, #config.tags do
   M.globalkeys = gears.table.join(M.globalkeys,
     -- View tag only.
-    awful.key({ config.modkey }, "#" .. i + 9,
+    awful.key({ config.modkey },  i,
       function()
         local screen = awful.screen.focused()
         local tag = screen.tags[i]
@@ -170,7 +181,7 @@ for i = 1, 9 do
       end,
       { description = "view tag #" .. i, group = "tag" }),
     -- Toggle tag display.
-    awful.key({ config.modkey, "Control" }, "#" .. i + 9,
+    awful.key({ config.modkey, "Control" }, i,
       function()
         local screen = awful.screen.focused()
         local tag = screen.tags[i]
@@ -180,7 +191,7 @@ for i = 1, 9 do
       end,
       { description = "toggle tag #" .. i, group = "tag" }),
     -- Move client to tag.
-    awful.key({ config.modkey, "Shift" }, "#" .. i + 9,
+    awful.key({ config.modkey, "Shift" }, i,
       function()
         if client.focus then
           local tag = client.focus.screen.tags[i]
@@ -191,7 +202,7 @@ for i = 1, 9 do
       end,
       { description = "move focused client to tag #" .. i, group = "tag" }),
     -- Toggle tag on focused client.
-    awful.key({ config.modkey, "Control", "Shift" }, "#" .. i + 9,
+    awful.key({ config.modkey, "Control", "Shift" }, i,
       function()
         if client.focus then
           local tag = client.focus.screen.tags[i]
