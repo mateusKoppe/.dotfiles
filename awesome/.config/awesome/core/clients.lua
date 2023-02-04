@@ -98,6 +98,10 @@ M.setup = function(client)
     end
   end)
 
+
+  client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+  client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
   -- Add a titlebar if titlebars_enabled is set to true in the rules.
   client.connect_signal("request::titlebars", function(c)
     -- buttons for the titlebar
