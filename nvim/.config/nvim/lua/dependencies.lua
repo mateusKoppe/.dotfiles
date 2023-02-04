@@ -7,7 +7,7 @@ return packer.startup(
   function()
     use "wbthomason/packer.nvim"
 
-    for _, feature in pairs(config.features) do
+    for _, feature in ipairs(config.features) do
       if (feature.active) then
         use(feature.package)
       end

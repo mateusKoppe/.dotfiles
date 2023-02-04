@@ -26,5 +26,6 @@ wk.register({
     w = { ":w<CR>", "Save" },
     q = { ":q<CR>", "Quit" },
     C = { ":bdel<CR>", "Close Buffer" },
+    y = { "\"+y", "Copy to clipboard", mode="v" }
   },
 })

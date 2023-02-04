@@ -1,6 +1,11 @@
 local M = {
   active = true,
-  package = { "numToStr/Comment.nvim" },
+  package = {
+    "numToStr/Comment.nvim",
+    requires = {
+      "folke/which-key.nvim",
+    }
+  },
   config = function()
     require('Comment').setup({
       toggler = {
