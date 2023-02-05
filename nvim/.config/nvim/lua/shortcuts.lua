@@ -25,7 +25,8 @@ wk.register({
   ["<leader>"] = {
     w = { ":w<CR>", "Save" },
     q = { ":q<CR>", "Quit" },
-    C = { ":bdel<CR>", "Close Buffer" },
-    y = { "\"+y", "Copy to clipboard", mode="v" }
+    x = { ":bdel<CR>", "Close Buffer" },
+    y = { "\"+y", "Copy to clipboard", mode="v" },
+    r = { ":%s/", "Search and Replace", mode="n" },
   },
 })
