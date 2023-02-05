@@ -1,26 +1,17 @@
 local M = {
   active = true,
-  package = {
-    "numToStr/Comment.nvim",
-    requires = {
-      "folke/which-key.nvim",
-    }
-  },
+  package = { "numToStr/Comment.nvim" },
   config = function()
     require('Comment').setup({
       toggler = {
         line = '<leader>/',
         block = '<leader>c/',
       },
-      opleader = {
+     opleader = {
         line = '<leader>/',
         block = '<leader>c/',
       },
-      mappings = {
-        basic = true,
-        extra = false,
-      },
-    })
+     })
   end
 }
 

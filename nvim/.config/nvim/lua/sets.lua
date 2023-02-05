@@ -1,5 +1,7 @@
 local set = vim.opt
 -- Set the behavior of tab
+vim.g.mapleader = " "
+
 set.tabstop = 2
 set.shiftwidth = 2
 set.softtabstop = 2
