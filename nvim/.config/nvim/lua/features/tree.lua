@@ -1,3 +1,42 @@
+function mysplit(inputstr, sep)
+  if sep == nil then
+    sep = "%s"
+  end
+  local t = {}
+  for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
+    table.insert(t, str)
+  end
+  return t
+end
+
+local function telescope(node, type)
+  local path = (node.type == "directory") and node._id or node._parent_id
+
+  local name = mysplit(node.id, "/")
+  name = { table.unpack(name, #name - node.level + 1, #name - (node.type == "file" and 1 or 0)) }
+  name = table.concat(name, "/")
+
+  local actions = {
+    ["live_grep"] = function()
+      require('telescope.builtin').live_grep({
+        search_dirs = { path },
+        prompt_title = "Live Grep: " .. name
+      })
+    end,
+
+    ["find_files"] = function()
+      require('telescope.builtin').find_files({
+        search_dirs = { path },
+        prompt_title = "Find Files: " .. name
+      })
+    end
+
+  }
+
+  actions[type]()
+
+end
+
 local M = {
   active = true,
 
@@ -66,6 +105,13 @@ local M = {
           mappings = {
             O = "system_open",
             h = "toggle_hidden",
+            F = function(state)
+              telescope(state.tree:get_node(), "find_files")
+            end,
+            Q = function(state)
+              telescope(state.tree:get_node(), "live_grep")
+            end,
+
           },
         },
 
