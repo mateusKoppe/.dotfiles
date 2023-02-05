@@ -124,6 +124,7 @@ alias wrm="rm $WORKSPACE_FOLDER/\$(ls $WORKSPACE_FOLDER | fzf)"
 
 alias tldrf="tldr --list-all | sed -e $'s/,/\\\n/g' | fzf --preview \"tldr {1} --theme ocean\""
 alias setup-node="nvm use && export PATH=$PATH:./node_modules/.bin/"
+alias rcd=". ranger"
 
 [ -f "/home/koppe/.ghcup/env" ] && source "/home/koppe/.ghcup/env" # ghcup-env
 [ -f "/home/koppe/.cargo/env" ] && source "/home/koppe/.cargo/env" # ghcup-env
