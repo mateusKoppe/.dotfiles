@@ -16,6 +16,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- Buffer Navigation
 vim.keymap.set("n", "H", ":bp<CR>")
 vim.keymap.set("n", "L", ":bn<CR>")
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 
 wk.register({
@@ -23,7 +24,8 @@ wk.register({
     w = { ":w<CR>", "Save" },
     q = { ":q<CR>", "Quit" },
     x = { ":bdel<CR>", "Close Buffer" },
-    y = { "\"+y", "Copy to clipboard", mode="v" },
-    r = { ":%s/", "Search and Replace", mode="n" },
+    y = { "\"+y", "Copy to clipboard", mode = "v" },
+    r = { ":%s/", "Search and Replace", mode = "n" },
+    t = { ":term<CR>", "Open terminal", mode = "n" }
   },
 })
