@@ -10,8 +10,6 @@ local mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
   menu = main_menu })
 
 
-local mykeyboardlayout = awful.widget.keyboardlayout()
-
 -- {{{ Wibar
 -- Create a textclock widget
 local mytextclock = wibox.widget.textclock()
@@ -87,7 +85,8 @@ M.setup_topbar = function(s)
     s.mytasklist, -- Middle widget
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
-      mykeyboardlayout,
+      require("components.volume").create(),
+      require("components.battery").create(),
       wibox.widget.systray(),
       mytextclock,
       s.mylayoutbox,

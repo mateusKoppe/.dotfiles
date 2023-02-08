@@ -5,6 +5,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local config = require("core.config")
 local main_menu = require("components.menu")
 local menubar = require("menubar")
+local volume = require("components.volume")
 
 local M = {}
 
@@ -54,12 +55,37 @@ M.globalkeys = gears.table.join(
     end,
     { description = "go back", group = "client" }),
 
+
+  -- Media
+  awful.key({}, "XF86AudioPlay", function() awful.util.spawn("playerctl play-pause") end),
+  awful.key({}, "XF86AudioNext", function() awful.util.spawn("playerctl next") end),
+  awful.key({}, "XF86AudioPrev", function() awful.util.spawn("playerctl prev") end),
+  awful.key({}, "XF86AudioRaiseVolume", volume.increase),
+  awful.key({}, "XF86AudioLowerVolume", volume.decrease),
+  awful.key({}, "XF86AudioMute", volume.toggle_mute),
+
   -- Standard program
-  awful.key({ config.modkey, }, "Return", function() awful.spawn(config.terminal) end,
+  awful.key({ config.modkey, "Shift" }, "Return", function() awful.spawn(config.terminal) end,
     { description = "open a terminal", group = "launcher" }),
+
+  awful.key({ config.modkey, "Shift" }, "w", function() awful.spawn("firefox") end,
+    { description = "open a browser", group = "launcher" }),
+
+  awful.key({ config.modkey, "Shift" }, "r", function() awful.spawn(config.terminal .. " -e ranger") end,
+    { description = "open a ranger", group = "launcher" }),
+
+  awful.key({ config.modkey, "Shift" }, "b", function() awful.spawn(config.terminal .. " -e bluetuith") end,
+    { description = "open bluetuith", group = "launcher" }),
+
+  awful.key({ config.modkey, "Shift" }, "d", function() awful.spawn(config.terminal .. " -e bluetuith") end,
+    { description = "open arand", group = "launcher" }),
+
+  awful.key({ config.modkey, "Control" }, "d", function() awful.spawn("autorandr --change --skip-option crtc && nitrogen --restore") end,
+    { description = "reload displays" }),
+
   awful.key({ config.modkey, "Control" }, "r", awesome.restart,
     { description = "reload awesome", group = "awesome" }),
-  awful.key({ config.modkey, "Shift" }, "q", awesome.quit,
+  awful.key({ config.modkey, "Control" }, "q", awesome.quit,
     { description = "quit awesome", group = "awesome" }),
 
   awful.key({ config.modkey, }, "l", function() awful.tag.incmwfact(0.05) end,
@@ -134,7 +160,7 @@ M.clientkeys = gears.table.join(
     { description = "close", group = "client" }),
   awful.key({ config.modkey, "Control" }, "space", awful.client.floating.toggle,
     { description = "toggle floating", group = "client" }),
-  awful.key({ config.modkey, "Control" }, "Return", function(c) c:swap(awful.client.getmaster()) end,
+  awful.key({ config.modkey }, "Return", function(c) c:swap(awful.client.getmaster()) end,
     { description = "move to master", group = "client" }),
   awful.key({ config.modkey, }, "o", function(c) c:move_to_screen() end,
     { description = "move to screen", group = "client" }),
@@ -171,7 +197,7 @@ M.clientkeys = gears.table.join(
 for i = 1, #config.tags do
   M.globalkeys = gears.table.join(M.globalkeys,
     -- View tag only.
-    awful.key({ config.modkey },  i,
+    awful.key({ config.modkey }, i,
       function()
         local screen = awful.screen.focused()
         local tag = screen.tags[i]
