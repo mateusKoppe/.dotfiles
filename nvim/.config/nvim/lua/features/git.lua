@@ -16,7 +16,8 @@ local M = {
           d = { "<cmd>Gitsigns preview_hunk<cr>", "Show hunk" },
           b = { "<cmd>Gitsigns blame_line<cr>", "Blame line" },
           B = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle Blame" },
-          n = { "<cmd>Gitsigns next_hunk<cr>", "Next Hunk" },
+          j = { "<cmd>Gitsigns next_hunk<cr>", "Next Hunk" },
+          k = { "<cmd>Gitsigns prev_hunk<cr>", "Previous Hunk" },
         },
       },
     })

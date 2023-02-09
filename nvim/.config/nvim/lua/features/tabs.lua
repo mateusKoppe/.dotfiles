@@ -8,6 +8,7 @@ local M = {
   config = function()
     require("bufferline").setup {
       options = {
+        numbers = "ordinal",
         indicator = {
           icon = '▎',
           style = 'icon',
@@ -17,6 +18,18 @@ local M = {
         show_buffer_icons = true
       }
     }
+
+    for t=1,9 do
+      local f = string.format
+      vim.keymap.set("n", f("<A-%d>", t), f("<Cmd>BufferLineGoToBuffer %d<CR>", t))
+    end
+
+    -- Buffer Navigation
+    vim.keymap.set("n", "H", "<Cmd>bp<CR>")
+    vim.keymap.set("n", "L", "<Cmd>bn<CR>")
+    vim.keymap.set("n", "<A-H>", "<Cmd>BufferLineMovePrev<CR>")
+    vim.keymap.set("n", "<A-L>", "<Cmd>BufferLineMoveNext<CR>")
+    vim.keymap.set("n", "<A-p>", "<Cmd>BufferLineTogglePin<CR>")
   end
 }
 

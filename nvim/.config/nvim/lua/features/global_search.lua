@@ -20,6 +20,7 @@ local M = {
           g = { "<cmd>Telescope git_files<cr>", "Git Files" },
           r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
           s = { "<cmd>Telescope git_status<cr>", "Git Status" },
+          b = { "<cmd>Telescope buffers<cr>", "Buffers" },
         },
       },
     })
