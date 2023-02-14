@@ -1,0 +1,7 @@
+#!/bin/bash
+
+WORKSPACE_FOLDER=$HOME/.workspaces
+
+workspace=`ls $WORKSPACE_FOLDER | dmenu -p "Workspace:"`
+absolute_path=`readlink $WORKSPACE_FOLDER/$workspace`
+kitty --directory $absolute_path
