@@ -6,7 +6,7 @@ general {
   interval = 5
 }
 
-order += "wireless _first_"
+#order += "wireless _first_"
 wireless _first_ {
   format_up = ": %quality"
   format_down = ""
@@ -29,7 +29,7 @@ volume master {
 
 order += "battery all"
 battery all {
-  format = "%status %percentage %remaining"
+  format = "%status %percentage"
   status_chr = 󰂄
   status_bat = 󰁿
   status_unk = 󰂑

@@ -1,0 +1,44 @@
+# WM independent hotkeys
+
+# terminal emulator
+super + Return
+	$TERMINAL
+
+# program launcher
+super + d
+	rofi -show drun -theme ~/.config/rofi/config.rasi
+
+super + Escape
+  screenlock
+
+#
+# Screnshots
+#
+ctrl + shift + Print
+  scrot -so /tmp/test && cat /tmp/test | xclip -i -selection clipboard -target image/png
+
+## Media keys
+XF86Audio{Play,Stop,Prev,Next}
+  playerctl {play-pause,stop,previous,next}
+
+XF86Audio{LowerVolume,RaiseVolume}
+  amixer set Master 5%{-,+}
+
+XF86AudioMute
+  amixer -D pulse set Master 1+ toggle
+
+XF86MonBrightness{Up,Down}
+  brightnessctl s 10%{+,-}
+
+super + alt + p
+  playerctl play-pause
+
+super alt + {_,shift} + v
+  amixer set Master 5%{+,-}
+
+super alt + {_,shift} + b
+  brightnessctl s 10%{+,-}
+
+# Applications
+super + shift + w
+  $BROWSER

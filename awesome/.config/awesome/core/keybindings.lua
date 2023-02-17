@@ -77,7 +77,7 @@ M.globalkeys = gears.table.join(
   awful.key({ config.modkey, "Shift" }, "b", function() awful.spawn(config.terminal .. " -e bluetuith") end,
     { description = "open bluetuith", group = "launcher" }),
 
-  awful.key({ config.modkey, "Shift" }, "d", function() awful.spawn(config.terminal .. " -e bluetuith") end,
+  awful.key({ config.modkey, "Shift" }, "d", function() awful.spawn("arandr") end,
     { description = "open arand", group = "launcher" }),
 
   awful.key({ config.modkey, "Control" }, "d", function() awful.spawn("autorandr --change --skip-option crtc && nitrogen --restore") end,
@@ -135,16 +135,9 @@ M.globalkeys = gears.table.join(
   awful.key({ config.modkey }, "p", function() menubar.show() end,
     { description = "show the menubar", group = "launcher" }),
 
-  awful.key({}, "Print",
-    function()
-      awful.util.spawn_with_shell("xfce4-screenshooter")
-    end,
-    { description = "Open screenshot tool", group = "screenshot" }),
-
-
   awful.key({ "Shift" }, "Print",
     function()
-      awful.util.spawn_with_shell("xfce4-screenshooter -cr")
+      awful.util.spawn_with_shell("screenshot")
     end,
     { description = "Screenshot region to clipboard", group = "screenshot" })
 )

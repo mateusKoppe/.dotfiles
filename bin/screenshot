@@ -1,0 +1,3 @@
+#!/bin/bash
+
+scrot --freeze -z -q 100 -s - | xclip -i -selection clipboard -target image/png

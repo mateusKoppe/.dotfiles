@@ -1,0 +1,26 @@
+#!/bin/bash
+
+NOTES_FOLDER=$HOME/Documents/Notes
+MENU_COMMAND_DMENU="dmenu -p Note:"
+MENU_COMMAND_ROFI="rofi -dmenu -p Note"
+
+if [ -z $MENU ]; then
+  MENU="dmenu"
+fi
+
+if [ -z $MENU_COMMAND ]; then
+  if [ $MENU = "dmenu" ]; then
+    MENU_COMMAND=$MENU_COMMAND_DMENU
+  fi
+
+  if [ $MENU = "rofi" ]; then
+    MENU_COMMAND=$MENU_COMMAND_ROFI
+  fi
+fi
+
+note=`ls $NOTES_FOLDER | $MENU_COMMAND`
+echo $note
+
+[ -z $note ] && exit
+
+pandoc -f markdown -t pdf "$NOTES_FOLDER/$note" -o - | zathura -

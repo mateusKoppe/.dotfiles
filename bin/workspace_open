@@ -1,7 +1,27 @@
 #!/bin/bash
 
 WORKSPACE_FOLDER=$HOME/.workspaces
+MENU_COMMAND_DMENU="dmenu -p Workspace:"
+MENU_COMMAND_ROFI="rofi -dmenu -p Workspace"
 
-workspace=`ls $WORKSPACE_FOLDER | dmenu -p "Workspace:"`
+if [ -z $MENU ]; then
+  MENU="dmenu"
+fi
+
+if [ -z $MENU_COMMAND ]; then
+  if [ $MENU = "dmenu" ]; then
+    MENU_COMMAND=$MENU_COMMAND_DMENU
+  fi
+
+  if [ $MENU = "rofi" ]; then
+    MENU_COMMAND=$MENU_COMMAND_ROFI
+  fi
+fi
+
+workspace=`ls $WORKSPACE_FOLDER | $MENU_COMMAND`
+
 absolute_path=`readlink $WORKSPACE_FOLDER/$workspace`
+
+[ -z $absolute_path ] && exit
+
 kitty --directory $absolute_path
