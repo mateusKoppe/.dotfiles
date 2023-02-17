@@ -35,7 +35,6 @@ local M = {
       set_lsp_keymaps = { omit = { '<F2>', '<F4>', '<C-k>' } }
     })
 
-
     lsp.setup()
 
     vim.lsp.handlers["textDocument/publishDiagnostics"] =

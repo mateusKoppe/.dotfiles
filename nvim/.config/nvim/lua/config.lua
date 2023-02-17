@@ -1,6 +1,7 @@
 local M = {}
 
 M.features = {
+  require("themes.dracula"),
   require("features.autopair"),
   require("features.display_indentation"),
   require("features.git"),
@@ -11,10 +12,9 @@ M.features = {
   require("features.startscreen"),
   require("features.syntax"),
   require("features.tabs"),
-  require("features.theme"),
   require("features.tree"),
   require("features.comment"),
-  require("features.ui")
+  require("features.ui"),
 }
 
 return M
