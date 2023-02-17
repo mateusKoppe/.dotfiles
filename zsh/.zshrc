@@ -82,6 +82,7 @@ source $ZSH/oh-my-zsh.sh
 [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
 source /usr/share/nvm/nvm.sh
 source /usr/share/nvm/bash_completion
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 # User configuration
@@ -126,5 +127,4 @@ alias tldrf="tldr --list-all | sed -e $'s/,/\\\n/g' | fzf --preview \"tldr {1} -
 alias setup-node="nvm use && export PATH=$PATH:./node_modules/.bin/"
 alias rcd=". ranger"
 
-[ -f "/home/koppe/.ghcup/env" ] && source "/home/koppe/.ghcup/env" # ghcup-env
-[ -f "/home/koppe/.cargo/env" ] && source "/home/koppe/.cargo/env" # ghcup-env
+alias note="nvim ~/Documents/Notes/"
