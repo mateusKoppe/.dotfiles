@@ -1,0 +1,1 @@
+autorandr --change --skip-option crtc && nitrogen --restore
