@@ -1,7 +1,7 @@
 local M = {}
 
 M.features = {
-  require("themes.dracula"),
+  require("themes.catppucin"),
   require("features.autopair"),
   require("features.display_indentation"),
   require("features.git"),
