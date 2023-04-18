@@ -2,10 +2,12 @@ local awful = require("awful")
 local gears = require("gears")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
+local menubar = require("menubar")
+
 local config = require("core.config")
 local main_menu = require("components.menu")
-local menubar = require("menubar")
 local volume = require("components.volume")
+local player = require("components.player")
 
 local M = {}
 
@@ -17,8 +19,6 @@ M.globalkeys = gears.table.join(
     { description = "view previous", group = "tag" }),
   awful.key({ config.modkey, }, "Right", awful.tag.viewnext,
     { description = "view next", group = "tag" }),
-  awful.key({ config.modkey, }, "Escape", awful.tag.history.restore,
-    { description = "go back", group = "tag" }),
 
   awful.key({ config.modkey, }, "j",
     function()
@@ -57,12 +57,14 @@ M.globalkeys = gears.table.join(
 
 
   -- Media
-  awful.key({}, "XF86AudioPlay", function() awful.util.spawn("playerctl play-pause") end),
-  awful.key({}, "XF86AudioNext", function() awful.util.spawn("playerctl next") end),
-  awful.key({}, "XF86AudioPrev", function() awful.util.spawn("playerctl prev") end),
+  awful.key({}, "XF86AudioPlay", player.play_toggle),
+  awful.key({}, "XF86AudioNext", player.next),
+  awful.key({}, "XF86AudioPrev", player.prev),
   awful.key({}, "XF86AudioRaiseVolume", volume.increase),
   awful.key({}, "XF86AudioLowerVolume", volume.decrease),
   awful.key({}, "XF86AudioMute", volume.toggle_mute),
+  awful.key({}, "XF86MonBrightnessDown", function () awful.util.spawn("brightnessctl set 10%-") end),
+  awful.key({}, "XF86MonBrightnessUp", function () awful.util.spawn("brightnessctl set +10%") end),
 
   -- Standard program
   awful.key({ config.modkey, "Shift" }, "Return", function() awful.spawn(config.terminal) end,
@@ -84,7 +86,7 @@ M.globalkeys = gears.table.join(
     function() awful.spawn("autorandr --change --skip-option crtc && nitrogen --restore") end,
     { description = "reload displays", group = "awesome" }),
 
-  awful.key({ config.modkey, "Control" }, "Escape",
+  awful.key({ config.modkey }, "Escape",
     function()
       awful.util.spawn_with_shell("$HOME/.dotfiles/bin/screenlock")
     end,
