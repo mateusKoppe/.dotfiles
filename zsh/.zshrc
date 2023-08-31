@@ -79,10 +79,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-[ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
-source /usr/share/nvm/nvm.sh
-source /usr/share/nvm/bash_completion
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 # User configuration
@@ -126,5 +123,6 @@ alias wrm="rm $WORKSPACE_FOLDER/\$(ls $WORKSPACE_FOLDER | fzf)"
 alias tldrf="tldr --list-all | sed -e $'s/,/\\\n/g' | fzf --preview \"tldr {1} --theme ocean\""
 alias setup-node="nvm use && export PATH=$PATH:./node_modules/.bin/"
 alias rcd=". ranger"
+alias gswc="git switch \$(git branch --sort=-committerdate | fzf)"
 
 alias note="nvim ~/Documents/Notes/"
