@@ -1,11 +1,31 @@
-require "dependencies"
-require "sets"
-
-local config = require("config")
-for _, feature in ipairs(config.features) do
-  if (feature.active) then
-    feature.config()
-  end
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
+vim.opt.rtp:prepend(lazypath)
 
-require "shortcuts"
+vim.g.mapleader = " "
+
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+
+vim.wo.relativenumber = true
+
+vim.cmd.colorscheme "catppuccin"
+
+--[[
+-- TODO:
+-- Add Autoclosing {}
+-- Autocomment
+--]]
+--
+
+require("lazy").setup("plugins")
+
