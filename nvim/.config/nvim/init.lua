@@ -17,15 +17,9 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
 vim.wo.relativenumber = true
+vim.wo.number = true
 
 vim.cmd.colorscheme "catppuccin"
-
---[[
--- TODO:
--- Add Autoclosing {}
--- Autocomment
---]]
---
 
 require("lazy").setup("plugins")
 
