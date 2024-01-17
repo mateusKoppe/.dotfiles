@@ -1,4 +1,5 @@
--- TODO: Improve bindings for autocompleation
+-- TODO: Improve snippet
+--
 -- note: diagnostics are not exclusive to lsp servers
 -- so these can be global keybindings
 vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
@@ -54,6 +55,38 @@ return {
 
 		local cmp = require('cmp')
 
+		local navigate_cmp = function (prev)
+			local has_words_before = function()
+				unpack = unpack or table.unpack
+				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+				return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+			end
+
+			return function(fallback)
+				if cmp.visible() then
+					if #cmp.get_entries() == 1 then
+						cmp.confirm({ select = true })
+					else
+						if prev then
+							cmp.select_prev_item()
+						else
+							cmp.select_next_item()
+						end
+					end
+					--[[ Replace with your snippet engine (see above sections on this page)
+					elseif snippy.can_expand_or_advance() then
+					snippy.expand_or_advance() ]]
+				elseif has_words_before() then
+					cmp.complete()
+					if #cmp.get_entries() == 1 then
+						cmp.confirm({ select = true })
+					end
+				else
+					fallback()
+				end
+			end
+		end
+
 		cmp.setup({
 			sources = {
 				{name = 'nvim_lsp'},
@@ -61,6 +94,8 @@ return {
 			mapping = cmp.mapping.preset.insert({
 				-- Enter key confirms completion item
 				['<CR>'] = cmp.mapping.confirm({select = false}),
+				['<S-Tab>'] = cmp.mapping(navigate_cmp(true), { "i", "s" }),
+				['<Tab>'] = cmp.mapping(navigate_cmp(false), { "i", "s" }),
 
 				-- Ctrl + space triggers completion menu
 				['<C-Space>'] = cmp.mapping.complete(),

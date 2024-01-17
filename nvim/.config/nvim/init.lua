@@ -9,6 +9,12 @@ if not vim.loop.fs_stat(lazypath) then
         lazypath,
     })
 end
+
+--[[
+-- TODO: Improve yank
+-- TODO: Improve buffers capabilities
+--]]
+
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
