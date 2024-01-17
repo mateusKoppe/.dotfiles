@@ -19,6 +19,8 @@ vim.opt.shiftwidth = 4
 vim.wo.relativenumber = true
 vim.wo.number = true
 
+vim.opt.scrolloff = 8
+
 vim.cmd.colorscheme "catppuccin"
 
 require("lazy").setup("plugins")

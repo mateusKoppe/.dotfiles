@@ -3,6 +3,7 @@ return {
 	config = function()
 		require("which-key").register({
 			e = { name = "+explorer"},
+			b = { name = "+buffers"},
 		}, { prefix = "<leader>" })
 	end,
 }
