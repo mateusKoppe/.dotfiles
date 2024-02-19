@@ -68,36 +68,6 @@ M.theme.menu_width        = dpi(100)
 -- You can add as many variables as
 -- you wish and access them by using
 -- beautiful.variable in your rc.lua
---theme.bg_widget = "#cc0000"
-
--- Define the image to load
-M.theme.titlebar_close_button_normal = themes_path .. "default/titlebar/close_normal.png"
-M.theme.titlebar_close_button_focus  = themes_path .. "default/titlebar/close_focus.png"
-
-M.theme.titlebar_minimize_button_normal = themes_path .. "default/titlebar/minimize_normal.png"
-M.theme.titlebar_minimize_button_focus  = themes_path .. "default/titlebar/minimize_focus.png"
-
-M.theme.titlebar_ontop_button_normal_inactive = themes_path .. "default/titlebar/ontop_normal_inactive.png"
-M.theme.titlebar_ontop_button_focus_inactive  = themes_path .. "default/titlebar/ontop_focus_inactive.png"
-M.theme.titlebar_ontop_button_normal_active   = themes_path .. "default/titlebar/ontop_normal_active.png"
-M.theme.titlebar_ontop_button_focus_active    = themes_path .. "default/titlebar/ontop_focus_active.png"
-
-M.theme.titlebar_sticky_button_normal_inactive = themes_path .. "default/titlebar/sticky_normal_inactive.png"
-M.theme.titlebar_sticky_button_focus_inactive  = themes_path .. "default/titlebar/sticky_focus_inactive.png"
-M.theme.titlebar_sticky_button_normal_active   = themes_path .. "default/titlebar/sticky_normal_active.png"
-M.theme.titlebar_sticky_button_focus_active    = themes_path .. "default/titlebar/sticky_focus_active.png"
-
-M.theme.titlebar_floating_button_normal_inactive = themes_path .. "default/titlebar/floating_normal_inactive.png"
-M.theme.titlebar_floating_button_focus_inactive  = themes_path .. "default/titlebar/floating_focus_inactive.png"
-M.theme.titlebar_floating_button_normal_active   = themes_path .. "default/titlebar/floating_normal_active.png"
-M.theme.titlebar_floating_button_focus_active    = themes_path .. "default/titlebar/floating_focus_active.png"
-
-M.theme.titlebar_maximized_button_normal_inactive = themes_path .. "default/titlebar/maximized_normal_inactive.png"
-M.theme.titlebar_maximized_button_focus_inactive  = themes_path .. "default/titlebar/maximized_focus_inactive.png"
-M.theme.titlebar_maximized_button_normal_active   = themes_path .. "default/titlebar/maximized_normal_active.png"
-M.theme.titlebar_maximized_button_focus_active    = themes_path .. "default/titlebar/maximized_focus_active.png"
-
---M.theme.wallpaper = themes_path .. "default/background.png"
 
 -- You can use your own layout icons like this:
 M.theme.layout_fairh      = themes_path .. "default/layouts/fairhw.png"
@@ -131,5 +101,3 @@ M.setup = function()
 end
 
 return M
-
--- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80

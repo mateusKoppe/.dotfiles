@@ -82,10 +82,6 @@ M.globalkeys = gears.table.join(
   awful.key({ config.modkey, "Shift" }, "d", function() awful.spawn("arandr") end,
     { description = "open arand", group = "launcher" }),
 
-  awful.key({ config.modkey, "Control" }, "d",
-    function() awful.spawn("autorandr --change --skip-option crtc && nitrogen --restore") end,
-    { description = "reload displays", group = "awesome" }),
-
   awful.key({ config.modkey }, "Escape",
     function()
       awful.util.spawn_with_shell("$HOME/.dotfiles/bin/screenlock")

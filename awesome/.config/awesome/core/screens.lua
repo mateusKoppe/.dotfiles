@@ -1,21 +1,15 @@
 local awful = require("awful")
-local beautiful = require("beautiful")
 local gears = require("gears")
 local topbar = require("components.topbar")
 local config = require("core.config")
 
 local M = {}
 
+local WALLPAPER_IMAGE = "/home/koppe/Pictures/wallpapers/wallpaper.png"
+
 local function set_wallpaper(s)
   -- Wallpaper
-  if beautiful.wallpaper then
-    local wallpaper = beautiful.wallpaper
-    -- If wallpaper is a function, call it with the screen
-    if type(wallpaper) == "function" then
-      wallpaper = wallpaper(s)
-    end
-    gears.wallpaper.maximized(wallpaper, s, true)
-  end
+  gears.wallpaper.maximized(WALLPAPER_IMAGE, s, true)
 end
 
 M.setup = function (screen)
@@ -23,7 +17,7 @@ M.setup = function (screen)
 
   awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
-    --set_wallpaper(s)
+    set_wallpaper(s)
 
     -- Each screen has its own tag table.
     awful.tag(config.tags, s, awful.layout.layouts[1])
