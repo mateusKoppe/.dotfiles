@@ -9,9 +9,9 @@ return {
 			wk.register({
 				g = {
 					name = "Git",
-					s = { gs.stage_hunk, "stage hunk" },
+					a = { gs.stage_hunk, "stage hunk" },
 					r = { gs.reset_hunk, "reset hunk" },
-					S = { gs.stage_buffer, "stage buffer" },
+					A = { gs.stage_buffer, "stage buffer" },
 					U = { gs.reset_buffer, "reset buffer" },
 					u = { gs.undo_stage_hunk, "undo stage hunk" },
 					R = { gs.reset_buffer, "reset buffer" },
