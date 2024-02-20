@@ -5,11 +5,17 @@ local config = require("core.config")
 
 local M = {}
 
-local WALLPAPER_IMAGE = "/home/koppe/Pictures/wallpapers/wallpaper.png"
+local WALLPAPER_IMAGE = "/home/koppe/Pictures/wallpapers"
 
 local function set_wallpaper(s)
-  -- Wallpaper
-  gears.wallpaper.maximized(WALLPAPER_IMAGE, s, true)
+  local CMD_RANDOM = " | grep '.png\\|.jpg' | shuf | head -n 1"
+  local CMD_IMAGES = "ls " .. WALLPAPER_IMAGE .. CMD_RANDOM
+
+  awful.spawn.easy_async_with_shell(CMD_IMAGES, function(wallpaper)
+    local sanitazed_wallpaper = string.gsub(wallpaper,"\n","")
+    local image_path = WALLPAPER_IMAGE .. "/" .. sanitazed_wallpaper
+    gears.wallpaper.maximized(image_path, s, true)
+  end)
 end
 
 M.setup = function (screen)
