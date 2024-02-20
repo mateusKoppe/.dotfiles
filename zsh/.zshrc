@@ -82,47 +82,18 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Loads zoxide
+eval "$(zoxide init zsh)"
+
 export EDITOR=nvim
-export PATH=$PATH:$HOME/.dotfiles/bin/
+export PATH=$HOME/.local/bin:$HOME/.dotfiles/bin/:$PATH
 
-WORKSPACE_FOLDER=$HOME/.workspaces
-alias wcd="cd \$(readlink $WORKSPACE_FOLDER/\$(ls $WORKSPACE_FOLDER | fzf))"
-alias wadd='echo -n "Project name: ($(basename $(pwd))) " && read name && ln -s $(pwd) $WORKSPACE_FOLDER/${name:-$(basename $(pwd))}'
-alias wrm="rm $WORKSPACE_FOLDER/\$(ls $WORKSPACE_FOLDER | fzf)"
-
-alias tldrf="tldr --list-all | sed -e $'s/,/\\\n/g' | fzf --preview \"tldr {1} --theme ocean\""
-alias setup-node="nvm use && export PATH=$PATH:./node_modules/.bin/"
 alias rcd=". ranger"
-alias gswc="git switch \$(git branch --sort=-committerdate | fzf)"
+alias gswc="git switch \$(git branch -a --sort=-committerdate | fzf)"
 
 alias note="nvim ~/Documents/Notes/"
+
