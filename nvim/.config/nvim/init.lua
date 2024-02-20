@@ -28,7 +28,9 @@ vim.wo.number = true
 
 vim.opt.scrolloff = 8
 
-vim.cmd.colorscheme "catppuccin"
 
 require("lazy").setup("plugins")
+
+
+vim.cmd.colorscheme "catppuccin"
 
