@@ -13,6 +13,8 @@ end
 --[[
 -- TODO: Improve yank
 -- TODO: Improve buffers capabilities
+-- TODO: Implement search by folder
+-- TODO: Implement search and replace
 --]]
 
 vim.opt.rtp:prepend(lazypath)
