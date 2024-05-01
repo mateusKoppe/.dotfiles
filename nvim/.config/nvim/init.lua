@@ -12,11 +12,14 @@ end
 
 --[[
 -- TODO: Improve buffers capabilities
+
 -- TODO: Implement search by folder
 -- TODO: Implement search and replace
+--- https://github.com/nvim-pack/nvim-spectre
+
+-- TODO: https://github.com/stevearc/oil.nvim
+-- TODO: https://github.com/stevearc/oil.nvim
 --]]
---
---
 
 vim.opt.rtp:prepend(lazypath)
 

@@ -4,7 +4,8 @@ return {
 		local wk = require("which-key")
 		wk.register({
 			e = { name = "+explorer"},
-			b = { name = "+buffers"},
+      w = { "<cmd>write<cr>", "write" },
+      q = { "<cmd>quit<cr>", "quit" }
 		}, { prefix = "<leader>" })
 
 		wk.register({
