@@ -9,7 +9,7 @@ local themes_path = gfs.get_themes_dir()
 local M = {}
 
 M.theme = {}
-local palette = require("core.colors").machiato
+local palette = require("core.colors").mocha
 
 M.theme.font = "JetBrains Mono Regular Nerd Font Complete 9"
 
