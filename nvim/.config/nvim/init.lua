@@ -12,6 +12,12 @@ end
 
 --[[
 -- TODO: Improve buffers capabilities
+--- Delete on telescope list
+--- Delete all
+-- TODO: Implement debugger
+-- TODO: Implement Formatter
+-- TODO: Implement code actions
+-- TODO: Better git integration
 
 -- TODO: Implement search by folder
 -- TODO: Implement search and replace
