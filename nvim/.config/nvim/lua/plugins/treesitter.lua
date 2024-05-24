@@ -6,6 +6,9 @@ return {
       local configs = require("nvim-treesitter.configs")
 
       configs.setup({
+        highlight = {
+          enabled = true
+        },
         auto_install = true
       })
     end

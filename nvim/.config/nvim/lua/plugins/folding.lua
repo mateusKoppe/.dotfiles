@@ -30,16 +30,25 @@ return {
   'kevinhwang91/nvim-ufo',
   dependencies = {'kevinhwang91/promise-async'},
   config = function ()
+    local wk = require("which-key")
+    local ufo = require("ufo")
+
     vim.o.foldcolumn = '0' -- '0' is not bad
     vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
     vim.o.foldlevelstart = 99
     vim.o.foldenable = true
 
     -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
-    vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
-    vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
-    vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds)
-    vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
+    wk.register({
+      z = {
+        name = "folding",
+        R = { ufo.openAllFolds, "open all folds"},
+        M = { ufo.closeAllFolds, "close all folds"},
+        r = { ufo.openFoldsExceptKinds, "open all but kinds"},
+        m = { ufo.closeFoldsWith, "close folds with"}, -- closeAllFolds == closeFoldsWith(0)
+      }
+    })
+
     vim.keymap.set('n', 'K', function()
       local winid = require('ufo').peekFoldedLinesUnderCursor()
       if not winid then
