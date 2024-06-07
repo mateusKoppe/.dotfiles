@@ -1,5 +1,8 @@
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
+--
+--
+-- TODO: Install a hibernate and suspend method
 require("core.displays").setup()
 
 pcall(require, "luarocks.loader")

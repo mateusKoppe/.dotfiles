@@ -3,7 +3,9 @@ local awful = require("awful")
 local M = {}
 
 local AUTOSTART_APPS = {
-  "picom"
+  "picom",
+  "blueman-applet",
+  "nm-applet"
 }
 
 M.setup = function ()
