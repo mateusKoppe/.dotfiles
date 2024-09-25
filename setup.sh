@@ -52,12 +52,6 @@ install_yay(){
   fi
 }
 
-install_fonts(){
-  if confirm "Install icon fonts?"; then
-    sudo pacman -S nerd-fonts
-  fi
-}
-
 install_grub_theme(){
   if confirm "Install grub theme (Vimix)?"; then
     cd /tmp
@@ -68,9 +62,14 @@ install_grub_theme(){
   fi
 }
 
+install_tui(){
+  if confirm "Install TUIs?"; then
+    sudo pacman -Sy --noconfirm yazi lazygit
+  fi
+}
+
 install_softwares
 install_yay
-install_fonts
 install_zsh
 install_neovim
 install_grub_theme

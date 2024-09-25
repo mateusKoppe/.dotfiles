@@ -11,7 +11,7 @@ local M = {}
 M.theme = {}
 local palette = require("core.colors").mocha
 
-M.theme.font = "JetBrains Mono Regular Nerd Font Complete 9"
+M.theme.font = "JetBrains Mono Regular 9"
 
 M.theme.bg_normal   = palette.base
 M.theme.bg_focus    = palette.crust
