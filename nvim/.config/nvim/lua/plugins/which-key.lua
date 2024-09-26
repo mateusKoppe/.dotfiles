@@ -5,7 +5,8 @@ return {
     wk.register({
       e = { name = "+explorer" },
       w = { "<cmd>write<cr>", "write" },
-      q = { "<cmd>quit<cr>", "quit" },
+      q = { "<cmd>quit<cr>", "quit panel" },
+      Q = { "<cmd>qa<cr>", "quit nvim" },
     }, { prefix = "<leader>" })
 
     wk.register({
