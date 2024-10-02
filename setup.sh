@@ -27,12 +27,18 @@ confirm () {
 install_softwares(){
   echo "Updating..."
   sudo pacman Syu -q --noconfirm
-  sudo pacman -S --needed git base-devel -q --noconfirm
+  sudo pacman -S --needed git man -q --noconfirm
 }
 
 install_zsh(){
   if confirm "Setup ZSH?"; then
     ./zsh/setup.sh;
+  fi
+}
+
+install_tmux(){
+  if confirm "Setup ZSH?"; then
+    ./tmux/setup.sh;
   fi
 }
 
@@ -54,6 +60,7 @@ install_yay(){
 
 install_grub_theme(){
   if confirm "Install grub theme (Vimix)?"; then
+    sudo pacman -Sy os-prober --noconfirm
     cd /tmp
     git clone https://github.com/vinceliuice/grub2-themes
     cd grub2-themes
@@ -62,14 +69,16 @@ install_grub_theme(){
   fi
 }
 
-install_tui(){
-  if confirm "Install TUIs?"; then
-    sudo pacman -Sy --noconfirm yazi lazygit
+install_misc(){
+  if confirm "Install misc? (yazi, tldr)"; then
+    sudo pacman -Sy --noconfirm yazi tldr man
   fi
 }
 
 install_softwares
 install_yay
 install_zsh
+install_tmux
 install_neovim
 install_grub_theme
+install_misc

@@ -48,6 +48,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Alias
 alias ls="exa"
+alias n="nvim"
 
 # ENVS
 export EDITOR=nvim
