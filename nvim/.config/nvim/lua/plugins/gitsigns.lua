@@ -1,4 +1,3 @@
--- TODO: Register keys with which key
 return {
     'lewis6991/gitsigns.nvim',
 	opts = {
@@ -6,53 +5,38 @@ return {
 			local gs = package.loaded.gitsigns
 			local wk = require("which-key")
 
-			wk.register({
-				g = {
-					name = "Git",
-					a = { gs.stage_hunk, "stage hunk" },
-					r = { gs.reset_hunk, "reset hunk" },
-					A = { gs.stage_buffer, "stage buffer" },
-					U = { gs.reset_buffer, "reset buffer" },
-					u = { gs.undo_stage_hunk, "undo stage hunk" },
-					R = { gs.reset_buffer, "reset buffer" },
-					p = { gs.preview_hunk, "preview hunk" },
-					b = { gs.toggle_current_line_blame, "toggle line blame" },
-					d = { gs.diffthis, "diff" },
-					B = { function() gs.blame_line{full=true} end, "blame line" },
-					D = { function() gs.diffthis('~') end, "diff" },
-				},
-				prefix = "<leader>"
-			})
-
-			wk.register({
-				[']c'] = {
+      wk.add({
+        {"<leader>g", group="git"},
+        {"<leader>ga", gs.stage_hunk, desc="stage hunk" },
+        {"<leader>gr", gs.reset_hunk, desc="reset hunk" },
+        {"<leader>gA", gs.stage_buffer, desc="stage buffer" },
+        {"<leader>gU", gs.reset_buffer, desc="reset buffer" },
+        {"<leader>gu", gs.undo_stage_hunk, desc="undo stage hunk" },
+        {"<leader>gR", gs.reset_buffer, desc="reset buffer" },
+        {"<leader>gp", gs.preview_hunk, desc="preview hunk" },
+        {"<leader>gb", gs.toggle_current_line_blame, desc="toggle line blame" },
+        {"<leader>gd", gs.diffthis, desc="diff" },
+        {"<leader>gB", function() gs.blame_line{full=true} end, desc="blame line" },
+        {"<leader>gD", function() gs.diffthis('~') end, desc="diff" },
+        {
+          "]c", 
 					function()
 						if vim.wo.diff then return ']c' end
 						vim.schedule(function() gs.next_hunk() end)
 						return '<Ignore>'
-					end ,
-					"Next git change"
-				},
-				['[c'] = {
+					end,
+					desc="Next git change"
+        },
+        {
+          "]c", 
 					function()
-						if vim.wo.diff then return '[c' end
+						if vim.wo.diff then return ']c' end
 						vim.schedule(function() gs.prev_hunk() end)
 						return '<Ignore>'
 					end,
-					"Prev git change"
-				}
-
+					desc="Prev git change"
+        }
 			})
-
-
-			-- TODO: Check some of these git feature
-			-- Actions
-			-- map('v', '<leader>gs', function() gs.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-			-- map('v', '<leader>gr', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-			-- map('n', '<leader>td', gs.toggle_deleted)
-
-			-- Text object
-			-- map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
 		end
 	},
 }

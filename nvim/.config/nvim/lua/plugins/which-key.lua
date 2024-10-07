@@ -2,21 +2,24 @@ return {
   "folke/which-key.nvim",
   config = function()
     local wk = require("which-key")
-    wk.register({
-      e = { name = "+explorer" },
-      w = { "<cmd>write<cr>", "write" },
-      q = { "<cmd>quit<cr>", "quit panel" },
-      Q = { "<cmd>qa<cr>", "quit nvim" },
+    wk.add({
+      { "<leader>Q", "<cmd>qa<cr>", desc = "quit nvim" },
+      { "<leader>e", group = "explorer" },
+      { "<leader>q", "<cmd>quit<cr>", desc = "quit panel" },
+      { "<leader>w", "<cmd>write<cr>", desc = "write" },
     }, { prefix = "<leader>" })
 
-    wk.register({
-      ["<esc>"] = { "<cmd>nohlsearch<CR>", "clear highlights" },
+    wk.add({
+      { "<esc>", "<cmd>nohlsearch<CR>", desc = "clear highlights" },
     })
 
-    wk.register({
-      ["<C-C>"] = { "\"+y", "Copy to clipboard system" }
-    }, {
-      mode = "v",
+    wk.add({
+      {
+        "<C-C>",
+        '"+y',
+        desc = "Copy to clipboard system",
+        mode = "v"
+      },
     })
   end,
 }

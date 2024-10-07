@@ -39,14 +39,11 @@ return {
     vim.o.foldenable = true
 
     -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
-    wk.register({
-      z = {
-        name = "folding",
-        R = { ufo.openAllFolds, "open all folds"},
-        M = { ufo.closeAllFolds, "close all folds"},
-        r = { ufo.openFoldsExceptKinds, "open all but kinds"},
-        m = { ufo.closeFoldsWith, "close folds with"}, -- closeAllFolds == closeFoldsWith(0)
-      }
+    wk.add({
+      {"zR", ufo.openAllFolds, desc="open all folds"},
+      {"zM", ufo.closeAllFolds, desc="close all folds"},
+      {"zr", ufo.openFoldsExceptKinds, desc="open all but kinds"},
+      {"zm", ufo.closeFoldsWith, desc="close folds with"}, -- closeAllFolds == closeFoldsWith(0)
     })
 
     vim.keymap.set('n', 'K', function()
