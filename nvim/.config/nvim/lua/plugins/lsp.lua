@@ -16,14 +16,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- these will be buffer-local keybindings
     -- because they only work if you have an active language server
     --
-    wk.register({
-      c = {
-        name = "Code",
-        r = { vim.lsp.buf.rename, "rename" },
-        a = { vim.lsp.buf.code_action, "actions" },
-        f = { vim.lsp.buf.format, "format" }
-      },
-      prefix = "<leader>"
+    wk.add({
+      { "<leader>c", group="code"},
+      { "<leader>cr", vim.lsp.buf.rename, desc="rename" },
+      { "<leader>ca", vim.lsp.buf.code_action, desc="actions" },
+      { "<leader>cf", vim.lsp.buf.format, desc="format" }
     })
 
     vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
