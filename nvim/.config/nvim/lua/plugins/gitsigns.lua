@@ -19,7 +19,7 @@ return {
         {"<leader>gB", function() gs.blame_line{full=true} end, desc="blame line" },
         {"<leader>gD", function() gs.diffthis('~') end, desc="diff" },
         {
-          "]c", 
+          "]c",
 					function()
 						if vim.wo.diff then return ']c' end
 						vim.schedule(function() gs.next_hunk() end)
@@ -28,7 +28,7 @@ return {
 					desc="Next git change"
         },
         {
-          "]c", 
+          "[c",
 					function()
 						if vim.wo.diff then return ']c' end
 						vim.schedule(function() gs.prev_hunk() end)
