@@ -1,14 +1,14 @@
 #!/bin/bash
-#
+source ./utils.sh
 
-echo "Installing zsh and dependencies..."
+echo "Installing ZSH and dependencies..."
 
-if [[ ! -z $(which apt-get) ]]; then
+if $UBUNTU; then
   sudo apt-get install zsh curl stow -y
-elif [[ ! -z $(which pacman) ]]; then
+fi
+
+if $ARCH; then
   sudo pacman -S zsh stow zoxide exa --noconfirm
-else
-  echo "Package manager not found"
 fi
 
 stow zsh

@@ -1,15 +1,17 @@
+#!/bin/bash
+source ./utils.sh
+
 echo "Installing Kitty and dependencies..."
 
+if $UBUNTU; then
+  sudo apt install stow kitty 
+  #ttf-jetbrains-mono ttf-nerd-fonts-symbols
+fi
 
-if [[ ! -z $(which apt-get) ]]; then
-  echo "Apt not configured";
-elif [[ ! -z $(which pacman) ]]; then
+if $ARCH; then
   sudo pacman -Sq stow kitty ttf-jetbrains-mono ttf-nerd-fonts-symbols --noconfirm
-else
-  echo "Package manager not found"
 fi
 
 stow kitty
 
 echo "Done"
-
