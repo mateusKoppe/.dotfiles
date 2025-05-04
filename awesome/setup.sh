@@ -8,7 +8,7 @@ if $UBUNTU; then
 fi
 
 if $ARCH; then
-  sudo pacman -S --noconfirm awesome picom xclip scrot ranger i3lock brightnessctl blueman alsa-utils playerctl
+  $PACMAN_INSTALL awesome picom xclip scrot ranger i3lock brightnessctl blueman alsa-utils playerctl
 fi
 
 echo "Add user to video group"

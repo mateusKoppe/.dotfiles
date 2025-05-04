@@ -9,7 +9,7 @@ if $UBUNTU; then
 fi
 
 if $ARCH; then
-  sudo pacman -Sq stow kitty ttf-jetbrains-mono ttf-nerd-fonts-symbols --noconfirm
+  $PACMAN_INSTALL stow kitty ttf-jetbrains-mono ttf-nerd-fonts-symbols
 fi
 
 stow kitty

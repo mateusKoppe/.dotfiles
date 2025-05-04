@@ -8,7 +8,7 @@ if $UBUNTU; then
 fi
 
 if $ARCH; then
-  sudo pacman -Sq neovim fzf ripgrep --noconfirm
+  $PACMAN_INSTALL neovim fzf ripgrep
 fi
 
 stow nvim

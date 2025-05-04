@@ -4,6 +4,9 @@ PWD=`pwd`
 FALSE=1
 TRUE=0
 
+PACMAN_INSTALL="sudo pacman --needed --noconfirm --quiet -S"
+FLATPAK_INSTALL="flatpak install --noninteractive"
+
 confirm () {
   printf "\n"
 

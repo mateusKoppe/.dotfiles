@@ -8,7 +8,7 @@ if $UBUNTU; then
 fi
 
 if $ARCH; then
-  sudo pacman -S zsh stow zoxide exa --noconfirm
+  $PACMAN_INSTALL zsh stow zoxide exa
 fi
 
 stow zsh

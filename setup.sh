@@ -2,7 +2,7 @@
 source utils.sh
 
 install_softwares(){
-  echo "Updating and installing essencial packages..."
+  echo "Updating and installing essential packages..."
 
   if $UBUNTU; then
     sudo apt update
@@ -12,7 +12,7 @@ install_softwares(){
   fi
 
   if $ARCH; then
-    sudo pacman -Syu
+    sudo pacman --noconfirm --quiet -Syu
 
     ## Install Yay if not installed
     if ! [ -x "$(command -v yay)" ]; then
@@ -23,7 +23,7 @@ install_softwares(){
       cd $PWD
     fi
 
-    sudo pacman -S git man flatpak
+    $PACMAN_INSTALL git man flatpak
   fi
 }
 
@@ -33,16 +33,19 @@ install_grub_theme(){
   fi
 
   if $ARCH; then
-    sudo pacman -Sy os-prober --noconfirm
+    $PACMAN_INSTALL os-prober
   fi
 
-  cd /tmp
-  git clone https://github.com/vinceliuice/grub2-themes
-  cd grub2-themes
-  sudo ./install.sh -b -t tela -s 1080p
-  sudo sed -i 's/#GRUB_DISABLE_OS_PROBER=false/GRUB_DISABLE_OS_PROBER=false/g' /etc/default/grub
-  sudo grub-mkconfig -o /boot/grub/grub.cfg
-  cd $PWD
+  THEME_INSTALLED=`grep -c "GRUB_THEME.*tela" /etc/default/grub`
+  if [ $THEME_INSTALLED == 0 ]; then
+    cd /tmp
+    git clone https://github.com/vinceliuice/grub2-themes
+    cd grub2-themes
+    sudo ./install.sh -b -t tela -s 1080p
+    sudo sed -i 's/#GRUB_DISABLE_OS_PROBER=false/GRUB_DISABLE_OS_PROBER=false/g' /etc/default/grub
+    sudo grub-mkconfig -o /boot/grub/grub.cfg
+    cd $PWD
+  fi
 }
 
 install_cli_tools(){
@@ -51,7 +54,7 @@ install_cli_tools(){
   fi
 
   if $ARCH; then
-    sudo pacman -Sy --noconfirm yazi tldr man
+    $PACMAN_INSTALL yazi tldr man
   fi
 }
 
@@ -61,23 +64,28 @@ install_dev_tools(){
   fi
 
   if $ARCH; then
-    sudo pacman -Sy --noconfirm docker docker-compose
+    $PACMAN_INSTALL docker docker-compose
   fi
 
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+
+  # Node Version Manager
+  if ! [ -x "$(command -v nvm)" ]; then
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+  fi
 }
 
 install_gui(){
-  flatpak install com.spotify.Client
+  $FLATPAK_INSTALL --noninteractive com.spotify.Client
 }
 
 install_work(){
   if confirm "Install work stuff?"; then
-    flatpak install com.slack.Slack com.microsoft.Teams com.getpostman.Postman
+    $FLATPAK_INSTALL com.slack.Slack com.microsoft.Teams com.getpostman.Postman
   fi
 }
 
 install_softwares
+
 ./kitty/setup.sh;
 ./nvim/setup.sh;
 ./zsh/setup.sh;
