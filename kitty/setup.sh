@@ -3,13 +3,14 @@ source ./utils.sh
 
 echo "Installing Kitty and dependencies..."
 
+install kitty
+
 if $UBUNTU; then
-  sudo apt install stow kitty 
-  #ttf-jetbrains-mono ttf-nerd-fonts-symbols
+  #TODO: Install font
 fi
 
 if $ARCH; then
-  $PACMAN_INSTALL stow kitty ttf-jetbrains-mono ttf-nerd-fonts-symbols
+  $PACMAN_INSTALL ttf-jetbrains-mono ttf-nerd-fonts-symbols
 fi
 
 stow kitty

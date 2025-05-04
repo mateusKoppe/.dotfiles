@@ -55,7 +55,7 @@ export EDITOR=nvim
 
 # Integrations
 eval "$(zoxide init zsh)"
-eval "$(fzf -- --zsh)"
+# eval "$(fzf -- --zsh)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

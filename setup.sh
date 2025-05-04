@@ -3,17 +3,14 @@ source utils.sh
 
 install_softwares(){
   echo "Updating and installing essential packages..."
+  update
+  install git flatpak curl stow 
 
   if $UBUNTU; then
-    sudo apt update
-    sudo apt upgrade
-    sudo apt install flatpak git man
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
   fi
 
   if $ARCH; then
-    sudo pacman --noconfirm --quiet -Syu
-
     ## Install Yay if not installed
     if ! [ -x "$(command -v yay)" ]; then
       cd /tmp
@@ -22,19 +19,11 @@ install_softwares(){
       makepkg -si
       cd $PWD
     fi
-
-    $PACMAN_INSTALL git man flatpak
   fi
 }
 
 install_grub_theme(){
-  if $UBUNTU; then
-    sudo apt install os-prober
-  fi
-
-  if $ARCH; then
-    $PACMAN_INSTALL os-prober
-  fi
+  install os-prober
 
   THEME_INSTALLED=`grep -c "GRUB_THEME.*tela" /etc/default/grub`
   if [ $THEME_INSTALLED == 0 ]; then
@@ -49,27 +38,24 @@ install_grub_theme(){
 }
 
 install_cli_tools(){
+  install tldr jq awk
+
   if $UBUNTU; then
-    sudo apt install yazi tldr
+    ## TODO: Install cargo
+    ## TODO: Check if --locked is necessary
+    cargo install --locked yazi-fm yazi-cli
   fi
 
   if $ARCH; then
-    $PACMAN_INSTALL yazi tldr man
+    $PACMAN_INSTALL yazi
   fi
 }
 
 install_dev_tools(){
-  if $UBUNTU; then
-    sudo apt install docker docker-compose
-  fi
-
-  if $ARCH; then
-    $PACMAN_INSTALL docker docker-compose
-  fi
-
+  install docker docker-compose
 
   # Node Version Manager
-  if ! [ -x "$(command -v nvm)" ]; then
+  if ! [ -s "$HOME/.nvm" ]; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
   fi
 }
