@@ -5,9 +5,9 @@ echo "Installing Kitty and dependencies..."
 
 install kitty
 
-if $UBUNTU; then
+#if $UBUNTU; then
   #TODO: Install font
-fi
+#fi
 
 if $ARCH; then
   $PACMAN_INSTALL ttf-jetbrains-mono ttf-nerd-fonts-symbols

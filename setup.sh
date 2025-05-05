@@ -38,12 +38,14 @@ install_grub_theme(){
 }
 
 install_cli_tools(){
-  install tldr jq awk
+  install tldr jq
 
   if $UBUNTU; then
-    ## TODO: Install cargo
-    ## TODO: Check if --locked is necessary
-    cargo install --locked yazi-fm yazi-cli
+    if ! [ -x "$(command -v yazi)" ]; then
+      curl -L https://github.com/sxyazi/yazi/releases/download/v25.4.8/yazi-x86_64-unknown-linux-gnu.zip -o /tmp/yazi.zip
+      sudo unzip -o /tmp/yazi.zip -d /opt
+      sudo ln -s /opt/yazi-x86_64-unknown-linux-gnu/yazi /usr/local/bin/yazi
+    fi
   fi
 
   if $ARCH; then
@@ -52,12 +54,27 @@ install_cli_tools(){
 }
 
 install_dev_tools(){
-  install docker docker-compose
-
   # Node Version Manager
   if ! [ -s "$HOME/.nvm" ]; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
   fi
+
+
+  # Docker
+  if $UBUNTU; then
+    # Add Docker's official GPG key:
+    if ! [ -x "$(command -v docker)" ]; then
+      ./setup-scripts/ubuntu-install-docker.sh
+    fi
+  fi
+
+  if $ARCH; then
+    $PACMAN_INSTALL docker docker-compose
+  fi
+
+  sudo groupadd docker
+  sudo gpasswd -a $USER docker
+  sudo systemctl enable --now docker.service
 }
 
 install_gui(){
