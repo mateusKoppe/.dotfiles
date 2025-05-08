@@ -4,7 +4,7 @@ source utils.sh
 install_softwares(){
   echo "Updating and installing essential packages..."
   update
-  install git flatpak curl stow 
+  install git flatpak curl stow gcc
 
   if $UBUNTU; then
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
