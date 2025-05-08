@@ -64,7 +64,7 @@ install_dev_tools(){
   if $UBUNTU; then
     # Add Docker's official GPG key:
     if ! [ -x "$(command -v docker)" ]; then
-      ./setup-scripts/ubuntu-install-docker.sh
+      ./setup-scripts/ubuntu/install-docker.sh
     fi
   fi
 
@@ -84,6 +84,19 @@ install_gui(){
 install_work(){
   if confirm "Install work stuff?"; then
     $FLATPAK_INSTALL com.slack.Slack com.microsoft.Teams com.getpostman.Postman
+
+    if $UBUNTU; then
+      $UBUNTU_INSTALL mysql-client
+
+      if ! [ -x "$(command -v warp-cli)" ]; then
+        ./setup-scripts/ubuntu/install-warp.sh
+      fi
+
+
+      if ! [ -x "$(command -v aws-cli)" ]; then
+        ./setup-scripts/ubuntu/install-aws-cli.sh
+      fi
+    fi
   fi
 }
 
@@ -92,7 +105,7 @@ install_softwares
 ./kitty/setup.sh;
 ./nvim/setup.sh;
 ./zsh/setup.sh;
-./awesome/setup.sh;
+# ./awesome/setup.sh;
 
 install_cli_tools
 install_dev_tools

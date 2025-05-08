@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# FROM: https://developers.cloudflare.com/warp-client/get-started/linux/
+# FROM: https://pkg.cloudflareclient.com/
+
 #Add cloudflare gpg key
 curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
 
