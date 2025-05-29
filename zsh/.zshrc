@@ -46,6 +46,9 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
+
+export PATH=$PATH:$HOME/.local/bin/
+
 # Alias
 alias ls="exa"
 alias n="nvim"
