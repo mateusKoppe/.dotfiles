@@ -4,7 +4,7 @@ source utils.sh
 install_softwares(){
   echo "Updating and installing essential packages..."
   update
-  install git flatpak curl stow gcc
+  install flatpak curl gcc qbittorrent vlc libreoffice zathura gimp tree
 
   if $UBUNTU; then
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -77,38 +77,12 @@ install_dev_tools(){
   sudo systemctl enable --now docker.service
 }
 
-install_gui(){
-  $FLATPAK_INSTALL --noninteractive com.spotify.Client
-}
-
-install_work(){
-  if confirm "Install work stuff?"; then
-    $FLATPAK_INSTALL com.slack.Slack com.microsoft.Teams com.getpostman.Postman
-
-    if $UBUNTU; then
-      $UBUNTU_INSTALL mysql-client
-
-      if ! [ -x "$(command -v warp-cli)" ]; then
-        ./setup-scripts/ubuntu/install-warp.sh
-      fi
-
-
-      if ! [ -x "$(command -v aws-cli)" ]; then
-        ./setup-scripts/ubuntu/install-aws-cli.sh
-      fi
-    fi
-  fi
-}
-
 install_softwares
 
 ./kitty/setup.sh;
 ./nvim/setup.sh;
 ./zsh/setup.sh;
-# ./awesome/setup.sh;
 
 install_cli_tools
 install_dev_tools
-install_gui
-install_work
 install_grub_theme
