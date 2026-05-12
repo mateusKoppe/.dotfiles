@@ -35,11 +35,21 @@ bindsym $mod+Escape exec swaylock -f -i ~/.local/share/backgrounds/random_backgr
 ## Night light
 exec wlsunset -s 06:30 -S 18:30
 
+## Start with sound muted
+exec pactl set-sink-mute @DEFAULT_SINK@ 1
+
 ## Tap o click
 input "type:touchpad" {
     dwt enabled
     tap enabled
     middle_emulation enabled
+}
+
+## Keyboard config
+input "type:keyboard" {
+    xkb_layout us
+    xkb_variant altgr-intl
+    xkb_options caps:escape
 }
 
 ### Key bindings
