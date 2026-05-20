@@ -5,7 +5,7 @@ echo "Installing Kitty and dependencies..."
 
 install kitty
 
-if $UBUNTU; then
+if $UBUNTU || $FEDORA; then
   curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip -o /tmp/JetBrainsMono.zip
   sudo mkdir /usr/share/fonts/JetBrainsMonoNF
   sudo unzip -o /tmp/JetBrainsMono.zip -d /usr/share/fonts/JetBrainsMonoNF

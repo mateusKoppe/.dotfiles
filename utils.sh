@@ -4,6 +4,7 @@ FALSE=1
 TRUE=0
 
 PACMAN_INSTALL="sudo pacman --needed --noconfirm --quiet -S"
+FEDORA_INSTALL="sudo dnf install -y"
 FLATPAK_INSTALL="flatpak install --noninteractive"
 APT_INSTALL="sudo apt install --yes"
 
@@ -11,6 +12,7 @@ APT_INSTALL="sudo apt install --yes"
 DISTRO=`grep "^ID=" /etc/os-release | awk -F "=" '{print $2}'`
 ARCH=false
 UBUNTU=false
+FEDORA=false
 case $DISTRO in
   ubuntu)
     UBUNTU=true
@@ -18,6 +20,10 @@ case $DISTRO in
 
   arch)
     ARCH=true
+  ;;
+
+  fedora)
+    FEDORA=true
   ;;
 
   *)
@@ -53,6 +59,10 @@ install() {
 
   if $ARCH; then
     $PACMAN_INSTALL $@
+  fi
+
+  if $FEDORA; then
+    $FEDORA_INSTALL $@
   fi
 }
 

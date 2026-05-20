@@ -3,7 +3,7 @@ source ./utils.sh
 
 echo "Installing ZSH and dependencies..."
 
-install zsh zoxide eza
+install zsh zoxide
 
 stow zsh
 chsh -s $(which zsh)
