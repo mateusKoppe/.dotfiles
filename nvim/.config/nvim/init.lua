@@ -17,10 +17,10 @@ vim.opt.termguicolors = true
 
 -- Theme
 vim.pack.add({
-  gh("folke/tokyonight.nvim"),
+  gh("ellisonleao/gruvbox.nvim"),
 })
 
-vim.cmd('colorscheme tokyonight-moon')
+vim.cmd('colorscheme gruvbox')
 
 -- New UI opt-in
 require('vim._core.ui2').enable({})
@@ -239,10 +239,41 @@ vim.pack.add({
   gh("nvim-treesitter/nvim-treesitter")
 })
 
-vim.api.nvim_create_autocmd('FileType', {
-  -- For some reason it wasn't starting automatically for typescriptreact
-  pattern = { '<filetype>', 'typescriptreact', 'javascriptreact' },
-  callback = function() vim.treesitter.start() end,
+require('nvim-treesitter').setup({
+  -- ensure_installed = { "typescript", "tsx", "javascript", "elixir" }, 
+  auto_install = true,
+
+  highlight = {
+    enable = true,
+  }
+})
+
+vim.filetype.add({
+  extension = {
+    ejs = "html",
+  }
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(args)
+    local lang = vim.bo[args.buf].filetype
+
+    if not lang or lang == "" or lang:match("^neo%-tree") then
+      return
+    end
+
+    local has_lang = false
+    pcall(function()
+      if vim.treesitter.language.get_lang(lang) then
+        has_lang = true
+      end
+    end)
+
+    if has_lang then
+      pcall(vim.treesitter.start, args.buf, lang)
+    end
+
+  end,
 })
 
 --------------------------
@@ -250,53 +281,8 @@ vim.api.nvim_create_autocmd('FileType', {
 -- -----------------------
 
 vim.pack.add({
-  gh('folke/snacks.nvim'),
-  gh('nvim-lualine/lualine.nvim'),
   gh('akinsho/bufferline.nvim'),
   gh('nvim-tree/nvim-web-devicons'),
-  gh('karb94/neoscroll.nvim'),
 })
 
-require('snacks').setup({
-  indent = {
-    enabled = true,
-    indent = {
-      only_scope = true,
-      only_current = true, -- only show indent guides in the current window
-    },
-    scope = {
-      enabled = false,
-    },
-    animate = {
-      enabled = false
-    }
-  },
-
-  input = {
-    enabled = true,
-
-    win = {
-      relative = "cursor",
-      border = true,
-      row = -2, -- Offset from cursor (optional)
-      col = 0,
-    },
-  },
-
-  picker = {
-    enabled = true
-  },
-
-  scroll = {
-    enabled = true
-  }
-})
-
-require('lualine').setup({
-  options = {
-    component_separators = { left = '|', right = '|' },
-    section_separators = { left = '', right = '' },
-    globalstatus = true,
-  }
-})
 require("bufferline").setup({})
