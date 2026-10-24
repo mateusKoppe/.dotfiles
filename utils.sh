@@ -22,6 +22,10 @@ case $DISTRO in
     ARCH=true
   ;;
 
+  manjaro)
+    ARCH=true
+  ;;
+
   fedora)
     FEDORA=true
   ;;
