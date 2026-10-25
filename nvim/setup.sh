@@ -3,7 +3,7 @@ source ./utils.sh
 
 echo "Installing Neovim and dependencies..."
 
-install fzf ripgrep curl stow
+install fzf ripgrep curl stow tree-sitter
 
 if $UBUNTU; then
   ## Ubuntu provies a old version
